@@ -1,11 +1,12 @@
-// import './App.css';
+import './App.css';
 import Homepage from './Pages/Homepage';
-import { Footer } from './Components/Footer/Footer';
+import HotelDetail from './Pages/HotelDetail';
 
 function App() {
   return (
-    <div>
-      <Homepage />
+    <div className="App">
+      {/* <Homepage /> */}
+      <HotelDetail />
       <Footer/>
     </div>
   );
