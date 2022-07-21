@@ -1,20 +1,268 @@
+import "../App.css";
 import React from "react";
-import { Box, Container, Flex, Image } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Image,
+  SimpleGrid,
+  Text,
+} from "@chakra-ui/react";
+import Searchbar from "../Components/Searchbar";
 export const LandingPage = () => {
   return (
-    <Container border="2px solid red" maxW="100%">
-      <Box bg="yellow.100" maxW="80%" m="auto">
-        <Flex border="2px solid green" gap="6">
-          <Box w="32%" h="210px" border="1px solid black">
-            <Image src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium" />
+    <Container maxW="100%">
+      <Searchbar />
+      <Box w="80%" m="auto" mt="80px">
+        <Flex gap="6" cursor="pointer">
+          <Box w="32%" boxShadow="lg" rounded="md">
+            <Text
+              fontWeight="700"
+              bg="transparent"
+              color="white"
+              fontSize="lg"
+              position="absolute"
+              mt="125px"
+              ml="5"
+            >
+              Find your perfect trip
+            </Text>
+            <Image
+              roundedTop={"md"}
+              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
+            />
+            <Text p="3" fontSize="12">
+              Plan a trip for the whole family from family travel tips to family
+              friendly filters, our tools make it easy.
+            </Text>
           </Box>
-          <Box w="32%" border="1px solid black">
-            <Image src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"/>
+          <Box w="32%" boxShadow="lg" rounded="md">
+            <Text
+              position="absolute"
+              mt="125px"
+              ml="5"
+              fontWeight="700"
+              bg="transparent"
+              color="white"
+              fontSize="lg"
+            >
+              Book with flexibility
+            </Text>
+            <Image
+              roundedTop={"md"}
+              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
+            />
+            <Text p="3" fontSize="12">
+              Looking for a change of scenery, but want something flexible? With
+              free cancellation on most hotels, you can book with peace of mind
+            </Text>
           </Box>
-          <Box w="32%" border="1px solid black">
-            <Image src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"/>
+          <Box w="32%" boxShadow="lg" rounded="md">
+            <Text
+              fontWeight="700"
+              bg="transparent"
+              color="white"
+              fontSize="lg"
+              position="absolute"
+              mt="125px"
+              ml="5"
+            >
+              we've got your back
+            </Text>
+            <Image
+              roundedTop={"md"}
+              src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
+            />
+            <Text p="3" fontSize="12">
+              Need more help along your journey? We offer 24/7 support on social
+              and through virtual agents onsite.
+            </Text>
           </Box>
         </Flex>
+
+        <Flex mt="7" gap="6">
+          <Box w="50%" rounded="md">
+            <Box
+              position="absolute"
+              ml="10"
+              bg="transparent"
+              w="250px"
+              mt="65px"
+              color="white"
+            >
+              <Text bg="transparent" fontWeight="700" fontSize="2xl">
+                All-inclusive resorts
+              </Text>
+              <Text bg="transparent" fontSize="sm" fontWeight="500" mt={2}>
+                Think of nothing beyond having a great time with your family
+              </Text>
+            </Box>
+            <Button
+              position="absolute"
+              m="40"
+              ml="10"
+              size="sm"
+              fontSize="12"
+              color="#515aba"
+            >
+              View Details
+            </Button>
+            <Image
+              rounded="md"
+              h="250px"
+              src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_AllInclusive_imgB_1199x399_20211104.jpg"
+            />
+          </Box>
+          <Box w="50%" rounded="md">
+            <Box
+              position="absolute"
+              ml="10"
+              bg="transparent"
+              w="250px"
+              mt="65px"
+              color="white"
+            >
+              <Text bg="transparent" fontWeight="700" fontSize="2xl">
+                Last minute getaways
+              </Text>
+              <Text bg="transparent" fontSize="sm" fontWeight="500" mt={2}>
+                Celebrate the moment with an unexpected getaway
+              </Text>
+            </Box>
+            <Button
+              position="absolute"
+              m="40"
+              ml="10"
+              size="sm"
+              fontSize="12"
+              color="#515aba"
+            >
+              View Details
+            </Button>
+            <Image
+              rounded="md"
+              h="250px"
+              src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_LastMinute_imgB_1199x399_20211104.jpg"
+            />
+          </Box>
+        </Flex>
+        <Box mt="7">
+          <Text fontSize="2xl" fontWeight="700">
+            Start planning your next trip
+          </Text>
+          <SimpleGrid gap="6" columns={4}>
+            <Box boxShadow={"md"} rounded="lg" cursor="pointer">
+              <Text
+                position="absolute"
+                color="white"
+                fontWeight="bold"
+                fontSize="lg"
+                bg="transparent"
+                ml="15px"
+                mt="150px"
+              >
+                Sunny beach hotel offers
+              </Text>
+              <Image
+                rounded="lg"
+                src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Beach_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
+                alt="sunny-beach"
+              />
+            </Box>
+            <Box boxShadow={"md"} rounded="lg" cursor="pointer">
+              <Text
+                position="absolute"
+                color="white"
+                fontWeight="bold"
+                fontSize="lg"
+                bg="transparent"
+                ml="15px"
+                mt="150px"
+              >
+                Car rental deals
+              </Text>
+              <Image
+                rounded="lg"
+                src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Car_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
+                alt="sunny-beach"
+              />
+            </Box>
+            <Box boxShadow={"md"} rounded="lg" cursor="pointer">
+              <Text
+                position="absolute"
+                color="white"
+                fontWeight="bold"
+                fontSize="lg"
+                bg="transparent"
+                ml="15px"
+                mt="150px"
+              >
+                Member discounts
+              </Text>
+              <Image
+                rounded="lg"
+                src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_MOD_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
+                alt="sunny-beach"
+              />
+            </Box>
+            <Box boxShadow={"md"} rounded="lg" cursor="pointer">
+              <Text
+                position="absolute"
+                color="white"
+                fontWeight="bold"
+                fontSize="lg"
+                bg="transparent"
+                ml="15px"
+                mt="150px"
+              >
+                Vacation rental offers
+              </Text>
+              <Image
+                rounded="lg"
+                src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_VacationRentals_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
+                alt="sunny-beach"
+              />
+            </Box>
+          </SimpleGrid>
+        </Box>
+        <Box mt="23px">
+          <Text fontSize="2xl" fontWeight="700">
+            Featured Offers
+          </Text>
+          <Box
+            position="absolute"
+            bg="transparent"
+            color="white"
+            mt="195px"
+            ml="4"
+            rounded="sm"
+          >
+            <Text fontSize="14" fontWeight="bold" bg="transparent">
+              Family vacation deals
+            </Text>
+            <Text bg="transparent" fontSize="md">
+              Seize your next unforgettable family vacation
+            </Text>
+          </Box>
+          <Image
+            rounded="lg"
+            w="100%"
+            objectFit="cover"
+            h="248px"
+            src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Family_imgB_1200x674_20211104.jpg"
+          />
+        </Box>
+        <Box mt="30px" rounded="lg">
+          <iframe
+            borderRadius="20px"
+            width="100%"
+            height="400"
+            src="https://www.youtube.com/embed/ItS8X0SjT4s"
+            title="YouTube video player"
+            allowFullScreen
+          ></iframe>
+        </Box>
       </Box>
     </Container>
   );
