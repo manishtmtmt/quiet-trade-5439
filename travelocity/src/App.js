@@ -1,13 +1,14 @@
-import './App.css';
-import Homepage from './Pages/Homepage';
-import HotelDetail from './Pages/HotelDetail';
+// import './App.css';
+import Homepage from "./Pages/Homepage";
+import { Footer } from "./Components/Footer/Footer";
+import PaymentPage from "./Pages/PaymentPage";
 
 function App() {
   return (
-    <div className="App">
-      {/* <Homepage /> */}
-      <HotelDetail />
-      <Footer/>
+    <div>
+      <Homepage />
+      <Footer />
+      <PaymentPage />
     </div>
   );
 }
