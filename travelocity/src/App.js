@@ -1,14 +1,19 @@
 // import './App.css';
-import Homepage from "./Pages/Homepage";
+
 import { Footer } from "./Components/Footer/Footer";
+
+
+import MainRoutes from "./Pages/MainRoutes";
+
 import PaymentPage from "./Pages/Payment_page";
+
 
 function App() {
   return (
     <div>
-      <Homepage />
-      <Footer />
-      <PaymentPage />
+      <MainRoutes />
+
+      {/* <Footer /> */}
     </div>
   );
 }
