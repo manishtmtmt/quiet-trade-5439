@@ -5,7 +5,7 @@ import HotelList from '../Components/HotelList'
 const MainRoutes = () => {
   return (
     <Routes>
-        <Route path="/hotel" element={<HotelList />} />
+        <Route path="/hotels" element={<HotelList />} />
     </Routes>
   )
 }

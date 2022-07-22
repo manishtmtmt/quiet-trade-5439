@@ -6,7 +6,6 @@ import {
   Container,
   Flex,
   Grid,
-  Heading,
   Radio,
   RadioGroup,
   Stack,
@@ -14,6 +13,13 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
+import Ads from "./Ads/Ads";
+import GuestRating from "./Filters/GuestRating";
+import MealPlans from "./Filters/MealPlans";
+import PaymentType from "./Filters/PaymentType";
+import PopularFliter from "./Filters/PopularFliter";
+import PopularLocation from "./Filters/PopularLocation";
+import PropertyType from "./Filters/PropertyType";
 import { SearchByProperty } from "./Filters/SearchByProperty";
 import HotelCard from "./HotelCard";
 
@@ -79,7 +85,6 @@ const HotelList = () => {
 
   useEffect(() => {
     getData();
-    console.log(hotels);
   }, []);
   return (
     <Box background={"#f0f3f5"}>
@@ -187,19 +192,28 @@ const HotelList = () => {
                 </Stack>
               </RadioGroup>
             </Box>
+            <PopularFliter />
+            <GuestRating />
+            <PaymentType />
+            <PropertyType />
+            <PopularLocation />
+            <MealPlans />
           </Box>
           <Box w={"50%"}>
             {loading ? (
-              <Box>
+              <Flex justifyContent={"center"} alignItems="center" height={"100vh"}>
                 <CircularProgress isIndeterminate />
-              </Box>
+              </Flex>
             ) : (
               hotels.map((item) => {
                 return <HotelCard key={item.hotelId} data={item} />;
               })
             )}
           </Box>
-          <Box>{/* Ads */}</Box>
+          <Box>
+            <Ads />
+            <Ads />
+          </Box>
         </Flex>
       </Container>
     </Box>
