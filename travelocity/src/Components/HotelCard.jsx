@@ -78,7 +78,7 @@ const Wrapper = styled.div`
 const Hotelcard = ({ data }) => {
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate("/hotel")
+    navigate("/Hoteldetail")
   }
     return (
         <Wrapper onClick={handleClick}
