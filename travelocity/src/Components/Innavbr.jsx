@@ -2,8 +2,7 @@ import {
   Box,
   Button,
   Flex,
-  Hide,
-  Spacer,
+
   Tab,
   TabList,
   Tabs,
@@ -16,10 +15,10 @@ const Innavbr = () => {
     <Flex
       justify="space-between"
       borderBottom="1px solid grey"
-     
+     opacity="3"
       pos={"sticky"}
       top="0"
-      bg="whiteAlpha.900"
+      bg="white"
      
     >
       <Flex justify={"space-around"}  bg="whiteAlpha.900">
@@ -37,22 +36,28 @@ const Innavbr = () => {
             <a href="#location" >Location</a>
             </Tab>
             <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              Amenities
+             
+              <a href="#amenities" >Amenities</a>
             </Tab>
             <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-              Policies
+              
+              <a href="#policies" >Policies</a>
             </Tab>
-            <Tab ml="8" p="2" cursor={"pointer"}  bg="whiteAlpha.900" borderBottom="2px solid blue">
+            {/* <Tab ml="8" p="2" cursor={"pointer"}  bg="whiteAlpha.900" borderBottom="2px solid blue">
               Reviews
-            </Tab>
+            </Tab> */}
           </TabList>
         </Tabs>
       </Flex>
       <Box>
-        {/* <Hide top="0"> */}
+     
+        <Button   top="0"  colorScheme="blue">
+          <a href="#rooms">
 
-        <Button   top="0"  colorScheme="blue">Reserve a room</Button>
-        {/* </Hide> */}
+          Reserve a room
+          </a>
+          </Button>
+
       </Box>
     </Flex>
   );
