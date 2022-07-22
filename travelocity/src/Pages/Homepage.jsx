@@ -3,7 +3,7 @@ import { LandingPage } from './LandingPage'
 
 const Homepage = () => {
   return (
-    <div>
+    <div style={{background: "#f0f3f5"}}>
       <LandingPage/>
     </div>
   )
