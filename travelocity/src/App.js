@@ -4,14 +4,15 @@ import { Footer } from "./Components/Footer/Footer";
 
 
 import MainRoutes from "./Pages/MainRoutes";
+import PaymentPage from "./Pages/PaymentPage";
 
-import PaymentPage from "./Pages/Payment_page";
 
 
 function App() {
   return (
     <div>
       <MainRoutes />
+      {/* <PaymentPage/> */}
 
       {/* <Footer /> */}
     </div>
