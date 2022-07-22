@@ -1,13 +1,16 @@
 import './App.css';
+import { Footer } from './Components/Footer/Footer';
 import Homepage from './Pages/Homepage';
 import HotelDetail from './Pages/HotelDetail';
+import MainRoutes from './Pages/MainRoutes';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       {/* <Homepage /> */}
       <HotelDetail />
-      <Footer/>
+      <Footer />
+      {/* <MainRoutes /> */}
     </div>
   );
 }
