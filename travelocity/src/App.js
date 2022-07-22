@@ -2,7 +2,11 @@
 
 import { Footer } from "./Components/Footer/Footer";
 
+
 import MainRoutes from "./Pages/MainRoutes";
+
+import PaymentPage from "./Pages/Payment_page";
+
 
 function App() {
   return (

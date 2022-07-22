@@ -7,11 +7,15 @@ import { useDispatch, useSelector } from "react-redux";
 import ImagesSec1 from "../Components/ImagesSec1";
 import Innavbr from "../Components/Innavbr";
 import Overview from "../Components/Overview";
+
 import Availability from "../Components/Availability";
 import RoomCard from "../Components/RoomCard";
 import Location from "../Components/Location";
 import Spinner2 from "../Components/Spinner";
 import AboutProperty from "../Components/AboutProperty";
+
+import Searchbar from "../Components/Searchbar";
+
 
 const HotelDetail = () => {
   const dispatch = useDispatch();
@@ -32,6 +36,7 @@ const HotelDetail = () => {
 
   return (
     <Container maxW="1300px">
+      <Searchbar />
       <Flex padding="4" bg="whiteAlpha.900" color="black">
         <Box bg="whiteAlpha.900">
           <ArrowBackIcon color="blue.300" bg="whiteAlpha.900" w={8} />

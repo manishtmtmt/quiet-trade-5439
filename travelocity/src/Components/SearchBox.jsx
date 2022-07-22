@@ -13,6 +13,7 @@ import { useState } from "react";
 
 const SearchBox = () => {
   const [query, setQuery] = useState("Going to");
+
   return (
     <>
       <Popover>
@@ -26,14 +27,20 @@ const SearchBox = () => {
             </Box>
           </Flex>
         </PopoverTrigger>
-        <PopoverContent width={"280px"} position="absolute" top={"-75px"} left="-140px">
+        <PopoverContent
+          width={"280px"}
+          position="absolute"
+          top={"-75px"}
+          left="-140px"
+        >
           <PopoverBody>
             <Stack>
               <Box>
-                <Input type={"text"} placeholder="Where are you going?" onChange={(e)=>setQuery(e.target.value)} />
-              </Box>
-              <Box>
-                Search Result
+                <Input
+                  type={"text"}
+                  placeholder="Where are you going?"
+                  onChange={(e) => setQuery(e.target.value)}
+                />
               </Box>
             </Stack>
           </PopoverBody>
