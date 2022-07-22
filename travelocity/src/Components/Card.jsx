@@ -29,6 +29,10 @@ const Card = ({ data }) => {
       <Img
         src={data.images[0].url}
         alt="Room-Image"
+        _hover={{
+          opacity:"0.8"
+        }}
+        cursor="pointer"
         borderRadius="12px 12px 0 0"
       />
 

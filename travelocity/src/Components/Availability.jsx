@@ -78,7 +78,7 @@ const Availability = () => {
           </Text>
         </Box>
       </Flex>
-      <Button colorScheme="blue" width="25%" mt="4" size="lg">
+      <Button colorScheme="blue" pos="static" width="25%" mt="4" size="lg">
         Check Availability
       </Button>
 

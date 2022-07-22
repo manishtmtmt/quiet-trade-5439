@@ -11,6 +11,7 @@ import Availability from "../Components/Availability";
 import RoomCard from "../Components/RoomCard";
 import Location from "../Components/Location";
 import Spinner2 from "../Components/Spinner";
+import AboutProperty from "../Components/AboutProperty";
 
 const HotelDetail = () => {
   const dispatch = useDispatch();
@@ -54,7 +55,9 @@ const HotelDetail = () => {
       </Box>
       <Box id="location">
         <Location data={data[0]?.address} />
+        <AboutProperty />
       </Box>
+
     </Container>
   );
 };
