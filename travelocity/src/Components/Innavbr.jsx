@@ -1,59 +1,48 @@
-import { Box, Button, Flex, Spacer, Tab, TabList, Tabs } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Spacer,
+  Tab,
+  TabList,
+  Tabs,
+} from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
+
 
 const Innavbr = () => {
-  const [active, setActive] = useState(false);
-
-  const handleSet = (value) => {
-    setActive(true);
-    SetBorder(value);
-  };
-
-  const SetBorder = (value) => {
-    if (value == "Overview") {
-      //    className=`borderBottom:"3px solid blue"`
-    }
-  };
-
   return (
-    <Flex justify="space-between" borderBottom="1px solid grey">
+    <Flex
+      justify="space-between"
+      borderBottom="1px solid grey"
+      bg="whiteAlpha.900"
+     
+    >
       <Flex justify={"space-around"}>
         <Tabs>
+          <TabList bg="whiteAlpha.900">
+            <Tab ml="4" p="2" cursor={"pointer"} borderBottom="2px solid blue">
+            <a href="#overview" >Overview</a>
+            </Tab>
 
-        <TabList>
-          <Tab
-            ml="4"
-            p="2"
-            cursor={"pointer"}
-            borderBottom="2px solid blue"
-          >
-            Overview
-          </Tab>
+            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid black">
+            <a href="#rooms" >Rooms</a>
+            </Tab>
 
-          <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid black">
-            Rooms
-          </Tab>
-
-          <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-            Location
-          </Tab>
-          <Tab ml="8" p="2" cursor={"pointer"}borderBottom="2px solid blue">
-            Amenities
-          </Tab>
-          <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
-            Policies
-          </Tab>
-          <Tab
-            ml="8"
-            p="2"
-            cursor={"pointer"}
-            borderBottom="2px solid blue"
-          >
-            Reviews
-          </Tab>
-        </TabList>
-            </Tabs>
+            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
+            <a href="#location" >Location</a>
+            </Tab>
+            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
+              Amenities
+            </Tab>
+            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
+              Policies
+            </Tab>
+            <Tab ml="8" p="2" cursor={"pointer"} borderBottom="2px solid blue">
+              Reviews
+            </Tab>
+          </TabList>
+        </Tabs>
       </Flex>
       <Box>
         <Button colorScheme="blue">Reserve a room</Button>

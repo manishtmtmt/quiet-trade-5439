@@ -1,14 +1,15 @@
 // import './App.css';
-import Homepage from "./Pages/Homepage";
+
 import { Footer } from "./Components/Footer/Footer";
-import PaymentPage from "./Pages/PaymentPage";
+
+import MainRoutes from "./Pages/MainRoutes";
 
 function App() {
   return (
     <div>
-      <Homepage />
-      <Footer />
-      <PaymentPage />
+      <MainRoutes />
+
+      {/* <Footer /> */}
     </div>
   );
 }
