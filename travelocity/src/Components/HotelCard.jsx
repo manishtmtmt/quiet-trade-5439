@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -75,8 +76,12 @@ const Wrapper = styled.div`
 `;
 
 const Hotelcard = ({ data }) => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate("/hotel")
+  }
     return (
-        <Wrapper
+        <Wrapper onClick={handleClick}
         >
             <img className="card-image" src={data.images[1].url} alt="" />
             <div className="hotel-detail">
