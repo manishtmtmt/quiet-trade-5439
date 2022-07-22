@@ -7,6 +7,7 @@ import Homepage from './Homepage'
 import HotelDetail from './HotelDetail'
 
 import HotelList from '../Components/HotelList'
+import HotelDetail from './HotelDetail'
 
 
 const MainRoutes = () => {
@@ -16,9 +17,7 @@ const MainRoutes = () => {
         <Route path="/" element={<Homepage/>} />
         <Route path="/search" element={<Searchbar />} />
         <Route path="/Hoteldetail" element={<HotelDetail />} />
-
         <Route path="/hotels" element={<HotelList />} />
-
     </Routes>
   )
 }
