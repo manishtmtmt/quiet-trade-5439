@@ -15,11 +15,17 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBox from "./SearchBox";
 
 const Searchbar = () => {
   const [room, setRoom] = useState(1);
   const [adult, setAdult] = useState(2);
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate("/hotel")
+  }
 
   return (
     <Box
@@ -175,9 +181,9 @@ const Searchbar = () => {
           </Flex>
         </Stack>
         <Box paddingTop={"30px"} textAlign="center">
-          <Button colorScheme={"blue"} width="100px" padding="10px 16px">
-            Search
-          </Button>
+            <Button colorScheme={"blue"} width="100px" padding="10px 16px" onClick={handleClick}>
+              Search
+            </Button>
         </Box>
       </Stack>
     </Box>
