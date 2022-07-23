@@ -3,11 +3,19 @@ import {
   Button,
   Flex,
   Img,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
   Radio,
   RadioGroup,
   Spacer,
   Stack,
   Text,
+  useDisclosure,
 } from "@chakra-ui/react";
 
 import SquareFootIcon from "@mui/icons-material/SquareFoot";
@@ -20,17 +28,28 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { SaveData } from "../Redux/AppReducer/LocalStorage";
 
 const Card = ({ data }) => {
   const [price, setPrice] = useState(data.roomPrice);
+
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   console.log(data);
   return (
-    <Box borderRadius="xl" border="2px solid grey" bg="whiteAlpha.900">
+    <Box
+      borderRadius="xl"
+      pos="static"
+      border="2px solid grey"
+      bg="whiteAlpha.900"
+    >
       <Img
         src={data.images[0].url}
         alt="Room-Image"
+        pos="static"
         _hover={{
-          opacity:"0.8"
+          opacity: "0.8",
         }}
         cursor="pointer"
         borderRadius="12px 12px 0 0"
@@ -95,14 +114,34 @@ const Card = ({ data }) => {
       <Text color="grey" bg="whiteAlpha.900" m="2" fontSize="sm" ml="4">
         Before Mon, Aug 1
       </Text>
-      <Flex ml="2" fontSize="sm" bg="whiteAlpha.900">
-        <Text ml="2" color="blue" bg="whiteAlpha.900">
-          More details
-        </Text>
-        <KeyboardArrowRightIcon
-          style={{ backgroundColor: "white", color: "blue", marginLeft: "4px" }}
-        />
-      </Flex>
+      <Link to={`/Hoteldetail/${data?.roomTypeId}`}>
+        <Flex
+          ml="2"
+          fontSize="sm"
+          bg="whiteAlpha.900"
+          onClick={() => {
+            SaveData("roomdetail", data);
+          }}
+          cursor="pointer"
+        >
+          <Text
+            ml="2"
+            mb="2"
+            color="blue"
+            bg="whiteAlpha.900"
+            _hover={{ borderBottom: "1px" }}
+          >
+            More details
+          </Text>
+          <KeyboardArrowRightIcon
+            style={{
+              backgroundColor: "white",
+              color: "blue",
+              marginLeft: "4px",
+            }}
+          />
+        </Flex>
+      </Link>
       <Box border="0.5px solid grey" />
       <Text fontSize="sm" ml="2" bg="whiteAlpha.900" fontWeight="bold">
         Extras
@@ -113,7 +152,10 @@ const Card = ({ data }) => {
           <Flex justify="space-between" color="grey" bg="whiteAlpha.900">
             <Radio
               value="0"
-              onChange={(e) => setPrice(data.roomPrice + Number(e.target.value))}
+              pos="static"
+              onChange={(e) =>
+                setPrice(data.roomPrice + Number(e.target.value))
+              }
               bg="whiteAlpha.900"
             >
               <Text bg="whiteAlpha.900">No extras</Text>
@@ -123,7 +165,10 @@ const Card = ({ data }) => {
           <Flex justify="space-between" color="grey" bg="whiteAlpha.900">
             <Radio
               value="45"
-              onChange={(e) => setPrice(data.roomPrice + Number(e.target.value))}
+              pos="static"
+              onChange={(e) =>
+                setPrice(data.roomPrice + Number(e.target.value))
+              }
               bg="whiteAlpha.900"
             >
               <Text bg="whiteAlpha.900">Dinner</Text>
@@ -145,7 +190,7 @@ const Card = ({ data }) => {
             ${price}
           </Text>
           <Text m="2" fontSize={"sm"} color="grey" bg="whiteAlpha.900">
-            ${data.roomPrice+30} total
+            ${data.roomPrice + 30} total
           </Text>
         </Stack>
       </Box>
@@ -157,7 +202,13 @@ const Card = ({ data }) => {
         borderRadius="20px"
       >
         <Flex m="2" bg="whiteAlpha.900">
-          <Text color="blue" bg="whiteAlpha.900" fontSize="sm">
+          <Text
+            color="blue"
+            bg="whiteAlpha.900"
+            onClick={onOpen}
+            fontSize="sm"
+            _hover={{ borderBottom: "1px" }}
+          >
             Price details
           </Text>
           <KeyboardArrowRightIcon
@@ -168,8 +219,51 @@ const Card = ({ data }) => {
             }}
           />
         </Flex>
-        <Button colorScheme="blue">Reserve</Button>
+        <Link to="/payment">
+          <Button pos="static" colorScheme="blue">
+            Reserve
+          </Button>
+        </Link>
       </Flex>
+
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader fontSize="md">Price details</ModalHeader>
+          <hr />
+          <ModalCloseButton />
+          <ModalBody>
+            <Flex justify="space-between">
+              <Text fontSize="sm">1 night</Text>
+              <Text fontSize="sm">${`${data.roomPrice}`}</Text>
+            </Flex>
+            <Flex justify="space-between">
+              <Text fontSize="sm">Taxes</Text>
+              <Text fontSize="sm">$30</Text>
+            </Flex>
+            <Stack>
+              <Spacer />
+              <Spacer />
+              <Spacer />
+            </Stack>
+            <Box border="1px" />
+            <Flex justify="space-between" fontWeight={"bold"} mt="4">
+              <Text fontSize="md">Total</Text>
+              <Text fontSize="md">${`${data.roomPrice + 30}`}</Text>
+            </Flex>
+            <Text color="green" fontSize="10px" mt="5">
+              Fully Refundable
+            </Text>
+            <Flex justify="space-between" mt="5">
+              <Link to="/payment">
+                <Button colorScheme={"blue"}>Reserve</Button>
+              </Link>
+              <Button onClick={onClose}>Close</Button>
+            </Flex>
+          </ModalBody>
+          <ModalFooter></ModalFooter>
+        </ModalContent>
+      </Modal>
     </Box>
   );
 };
