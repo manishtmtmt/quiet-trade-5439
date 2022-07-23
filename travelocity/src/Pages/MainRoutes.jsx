@@ -4,15 +4,12 @@ import Searchbar from '../Components/Searchbar'
 import Homepage from './Homepage'
 import HotelDetail from './HotelDetail'
 
-import HotelList from '../Components/HotelList'
-import PaymentPage from './PaymentPage'
 import RoomInfo from '../Components/RoomInfo'
 import Login from './Login'
 import SignUp from './SignUp'
 
 import HotelList from "../Components/HotelList";
 import PaymentPage from "./PaymentPage";
-import RoomInfo from "../Components/RoomInfo";
 import { ResortsPage } from "./ResortsPage";
 
 const MainRoutes = () => {
