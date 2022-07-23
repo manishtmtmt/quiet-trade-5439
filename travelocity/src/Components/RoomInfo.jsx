@@ -128,7 +128,6 @@ const RoomInfo = () => {
                 Reserve now, pay later
               </Text>
             </Flex>
-
             <Box width="100%">
               <Text m="2" fontSize="xl" fontWeight="bold">
                 Room amenities

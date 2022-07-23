@@ -1,6 +1,5 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import Searchbar from '../Components/Searchbar'
 import Homepage from './Homepage'
 import HotelDetail from './HotelDetail'
@@ -11,6 +10,10 @@ import RoomInfo from '../Components/RoomInfo'
 import Login from './Login'
 import SignUp from './SignUp'
 
+import HotelList from "../Components/HotelList";
+import PaymentPage from "./PaymentPage";
+import RoomInfo from "../Components/RoomInfo";
+import { ResortsPage } from "./ResortsPage";
 
 const MainRoutes = () => {
   return (
@@ -21,11 +24,11 @@ const MainRoutes = () => {
         <Route path="/Hoteldetail/:id" element={<RoomInfo />} />
         <Route path="/payment" element={<PaymentPage/>} />
         <Route path="/hotels" element={<HotelList />} />
-        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/bestresorts" element={<ResortsPage />} />
         <Route path="/login" element={<Login/>}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
     </Routes>
-  )
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;

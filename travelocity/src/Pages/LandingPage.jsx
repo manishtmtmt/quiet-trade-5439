@@ -10,9 +10,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Searchbar from "../Components/Searchbar";
+import { Link } from "react-router-dom";
+
 export const LandingPage = () => {
   return (
-    <Container maxW="100%">
+    <Container maxW="100%" mb="70px">
       <Searchbar />
       <Box w="80%" m="auto" mt="80px">
         <Flex gap="6" cursor="pointer">
@@ -97,7 +99,7 @@ export const LandingPage = () => {
               position="absolute"
               ml="10"
               bg="transparent"
-              w="250px"
+              w="270px"
               mt="65px"
               color="white"
             >
@@ -108,17 +110,19 @@ export const LandingPage = () => {
                 Think of nothing beyond having a great time with your family
               </Text>
             </Box>
-            <Button
-              position="absolute"
-              m="40"
-              ml="10"
-              size="sm"
-              fontSize="12"
-              color="#515aba"
-              zIndex="1"
-            >
-              View Details
-            </Button>
+            <Link to="/bestresorts">
+              <Button
+                position="absolute"
+                m="40"
+                ml="10"
+                size="sm"
+                fontSize="12"
+                color="#515aba"
+                zIndex="1"
+              >
+                View Details
+              </Button>
+            </Link>
             <Image
               filter="auto"
               brightness={"50%"}
@@ -133,7 +137,7 @@ export const LandingPage = () => {
               position="absolute"
               ml="10"
               bg="transparent"
-              w="250px"
+              w="300px"
               mt="65px"
               color="white"
             >
@@ -144,6 +148,7 @@ export const LandingPage = () => {
                 Celebrate the moment with an unexpected getaway
               </Text>
             </Box>
+
             <Button
               position="absolute"
               m="40"
@@ -152,9 +157,11 @@ export const LandingPage = () => {
               fontSize="12"
               color="#515aba"
               zIndex="1"
+              // onClick={() => navigate("/bestresorts")}
             >
               View Details
             </Button>
+
             <Image
               filter="auto"
               brightness={"50%"}
