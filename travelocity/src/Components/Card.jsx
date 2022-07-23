@@ -33,11 +33,22 @@ import { SaveData } from "../Redux/AppReducer/LocalStorage";
 
 const Card = ({ data }) => {
   const [price, setPrice] = useState(data.roomPrice);
-  const location =useLocation();
+  const location = useLocation();
   console.log(location);
+  const [add, setAdd] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   console.log(data);
+
+  const handleChange = (e) => {
+    let { value } = e.target;
+    setPrice(data.roomPrice + Number(value));
+    if (value == "45") {
+      setAdd(true);
+    } else {
+      setAdd(false);
+    }
+  };
   return (
     <Box
       borderRadius="xl"
@@ -115,7 +126,10 @@ const Card = ({ data }) => {
       <Text color="grey" bg="whiteAlpha.900" m="2" fontSize="sm" ml="4">
         Before Mon, Aug 1
       </Text>
-      <Link to={`/Hoteldetail/${data?.roomTypeId}`}  state={{ pathname: location.pathname }} >
+      <Link
+        to={`/Hoteldetail/${data?.roomTypeId}`}
+        state={{ pathname: location.pathname }}
+      >
         <Flex
           ml="2"
           fontSize="sm"
@@ -154,9 +168,7 @@ const Card = ({ data }) => {
             <Radio
               value="0"
               pos="static"
-              onChange={(e) =>
-                setPrice(data.roomPrice + Number(e.target.value))
-              }
+              onChange={handleChange}
               bg="whiteAlpha.900"
             >
               <Text bg="whiteAlpha.900">No extras</Text>
@@ -167,9 +179,7 @@ const Card = ({ data }) => {
             <Radio
               value="45"
               pos="static"
-              onChange={(e) =>
-                setPrice(data.roomPrice + Number(e.target.value))
-              }
+              onChange={handleChange}
               bg="whiteAlpha.900"
             >
               <Text bg="whiteAlpha.900">Dinner</Text>
@@ -191,7 +201,7 @@ const Card = ({ data }) => {
             ${price}
           </Text>
           <Text m="2" fontSize={"sm"} color="grey" bg="whiteAlpha.900">
-            ${data.roomPrice + 30} total
+            ${price + 30} total
           </Text>
         </Stack>
       </Box>
@@ -242,6 +252,14 @@ const Card = ({ data }) => {
               <Text fontSize="sm">Taxes</Text>
               <Text fontSize="sm">$30</Text>
             </Flex>
+            {add ? (
+              <Flex justify="space-between">
+                <Text fontSize="sm">Dinner</Text>
+                <Text fontSize="sm">$45</Text>
+              </Flex>
+            ) : (
+              ""
+            )}
             <Stack>
               <Spacer />
               <Spacer />
@@ -250,7 +268,7 @@ const Card = ({ data }) => {
             <Box border="1px" />
             <Flex justify="space-between" fontWeight={"bold"} mt="4">
               <Text fontSize="md">Total</Text>
-              <Text fontSize="md">${`${data.roomPrice + 30}`}</Text>
+              <Text fontSize="md">${`${price + 30}`}</Text>
             </Flex>
             <Text color="green" fontSize="10px" mt="5">
               Fully Refundable

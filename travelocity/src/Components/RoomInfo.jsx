@@ -1,5 +1,23 @@
-import { Box, CloseButton, Flex, Img, Text } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import {
+  Box,
+  Button,
+  CloseButton,
+  Flex,
+  Img,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  ModalOverlay,
+  Radio,
+  RadioGroup,
+  Spacer,
+  Stack,
+  Text,
+  useDisclosure,
+} from "@chakra-ui/react";
+import React, { useEffect, useState } from "react";
 import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
@@ -17,20 +35,33 @@ import LocationCityIcon from "@mui/icons-material/LocationCity";
 
 import FreeBreakfastTwoToneIcon from "@mui/icons-material/FreeBreakfastTwoTone";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
 import { LoadData } from "../Redux/AppReducer/LocalStorage";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const RoomInfo = () => {
   const data = LoadData("roomdetail");
   console.log(data);
   const navigate = useNavigate();
-
+  const [price, setPrice] = useState(data.roomPrice);
+  const [add, setAdd] = useState(false);
   const location = useLocation();
-
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const handleclose = () => {
     navigate(location.state.pathname);
   };
+
+  const handleChange=(e)=>{
+    let {value} = e.target
+    setPrice(data.roomPrice + Number(value))
+    if(value=="45"){
+      setAdd(true)
+    }
+    else{
+      setAdd(false)
+    }
+  }
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -42,8 +73,8 @@ const RoomInfo = () => {
         <CloseButton size="lg" color="blue" onClick={handleclose} />
         <Text mt="2">Room information</Text>
       </Flex>
-      <Flex m="auto"  justify="center" >
-        <Flex justify="center"  width="90%">
+      <Flex m="auto" justify="center">
+        <Flex justify="center" width="90%">
           <Box width="40%" m="4">
             <Text fontSize={"xl"} p="2" fontWeight="bold">
               {data.name}
@@ -327,7 +358,153 @@ const RoomInfo = () => {
                 alt="room-image"
               />
             </Box>
-            <Box></Box>
+            <Text fontSize={"lg"} fontWeight="bold" p="3">
+              Room Options
+            </Text> 
+            <Box border="1px solid grey" p="5" borderRadius="14px" >
+              <Text fontSize={"sm"} fontWeight="bold" p="4">
+                Extras
+              </Text>
+
+              <RadioGroup defaultValue="0" color="grey" bg="whiteAlpha.900">
+                <Stack
+                  direction={["column"]}
+                  color="grey"
+                  bg="whiteAlpha.900"
+                  m="2"
+                >
+                  <Flex
+                    justify="space-between"
+                    color="grey"
+                    bg="whiteAlpha.900"
+                  >
+                    <Radio
+                      value="0"
+                      pos="static"
+                      onChange={handleChange}
+                      bg="whiteAlpha.900"
+                    >
+                      <Text bg="whiteAlpha.900">No extras</Text>
+                    </Radio>
+                    <Text bg="whiteAlpha.900">+$0</Text>
+                  </Flex>
+                  <Flex
+                    justify="space-between"
+                    color="grey"
+                    bg="whiteAlpha.900"
+                  >
+                    <Radio
+                      value="45"
+                      pos="static"
+                      onChange={handleChange}
+                      bg="whiteAlpha.900"
+                    >
+                      <Text bg="whiteAlpha.900">Dinner</Text>
+                    </Radio>
+                    <Text bg="whiteAlpha.900">+$45</Text>
+                  </Flex>
+                </Stack>
+              </RadioGroup>
+
+              <Box bg="whiteAlpha.900">
+                <Stack bg="whiteAlpha.900" m="4">
+                  <Spacer />
+                  <Spacer />
+                  <Text color="green" fontSize="10px" mt="5">
+                      Fully Refundable
+                    </Text>
+                  <Spacer />
+                  <Spacer />
+
+                  <Spacer />
+                  <Text
+                    m="2"
+                    fontSize="xl"
+                    fontWeight={"bold"}
+                    bg="whiteAlpha.900"
+                  >
+                    ${price}
+                  </Text>
+                  <Text m="2" fontSize={"sm"} color="grey" bg="whiteAlpha.900">
+                    ${price + 30} total
+                  </Text>
+                </Stack>
+              </Box>
+
+              <Flex
+                justify="space-between"
+                p="3"
+                bg="whiteAlpha.900"
+                borderRadius="20px"
+              >
+                <Flex m="2" bg="whiteAlpha.900">
+                  <Text
+                    color="blue"
+                    bg="whiteAlpha.900"
+                    onClick={onOpen}
+                    fontSize="sm"
+                    _hover={{ borderBottom: "1px" }}
+                  >
+                    Price details
+                  </Text>
+                  <KeyboardArrowRightIcon
+                    style={{
+                      backgroundColor: "white",
+                      color: "blue",
+                      marginLeft: "4px",
+                    }}
+                  />
+                </Flex>
+                <Link to="/payment">
+                  <Button pos="static" colorScheme="blue">
+                    Reserve
+                  </Button>
+                </Link>
+              </Flex>
+
+              <Modal isCentered isOpen={isOpen} onClose={onClose}>
+                <ModalOverlay />
+                <ModalContent>
+                  <ModalHeader fontSize="md">Price details</ModalHeader>
+                  <hr />
+                  <ModalCloseButton />
+                  <ModalBody>
+                    <Flex justify="space-between">
+                      <Text fontSize="sm">1 night</Text>
+                      <Text fontSize="sm">${`${data.roomPrice}`}</Text>
+                    </Flex>
+                    <Flex justify="space-between">
+                      <Text fontSize="sm">Taxes</Text>
+                      <Text fontSize="sm">$30</Text>
+                    </Flex>
+                    {add?( <Flex justify="space-between">
+                      <Text fontSize="sm">Dinner</Text>
+                      <Text fontSize="sm">$45</Text>
+                    </Flex>):""}
+                   
+                    <Stack>
+                      <Spacer />
+                      <Spacer />
+                      <Spacer />
+                    </Stack>
+                    <Box border="1px" />
+                    <Flex justify="space-between" fontWeight={"bold"} mt="4">
+                      <Text fontSize="md">Total</Text>
+                      <Text fontSize="md">${`${price + 30}`}</Text>
+                    </Flex>
+                    <Text color="green" fontSize="10px" mt="5">
+                      Fully Refundable
+                    </Text>
+                    <Flex justify="space-between" mt="5">
+                      <Link to="/payment">
+                        <Button colorScheme={"blue"}>Reserve</Button>
+                      </Link>
+                      <Button onClick={onClose}>Close</Button>
+                    </Flex>
+                  </ModalBody>
+                </ModalContent>
+              </Modal>
+            </Box>
           </Box>
         </Flex>
       </Flex>
