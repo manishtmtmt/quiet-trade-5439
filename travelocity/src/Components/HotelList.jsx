@@ -26,6 +26,7 @@ import { SearchByProperty } from "./Filters/SearchByProperty";
 import { Footer } from "./Footer/Footer";
 import HotelCard from "./HotelCard";
 import { Navbar } from "./Navbar";
+import Spinner2 from "./Spinner";
 
 const HotelList = () => {
   const [hotels, setHotels] = useState([]);
@@ -112,6 +113,10 @@ const HotelList = () => {
   useEffect(() => {
     getData();
   }, []);
+
+  if(loading){
+    return <Spinner2/>
+  }
   return (
     <Box background={"#f0f3f5"}>
       <Navbar />
