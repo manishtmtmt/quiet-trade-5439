@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { SaveData } from "../Redux/AppReducer/LocalStorage";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
   width: 95%;
@@ -76,11 +76,15 @@ const Wrapper = styled.div`
   }
 `;
 
-const Hotelcard = ({ data }) => {
+const Hotelcard = ({ data ,state}) => {
+
+  const location = useLocation()
+// console.log(location)
   const navigate = useNavigate();
   const handleClick = () => {
     SaveData("cardData", data)
     navigate(`/Hoteldetail`)
+  
   }
     return (
         <Wrapper onClick={handleClick}

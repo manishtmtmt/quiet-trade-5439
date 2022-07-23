@@ -4,7 +4,7 @@ import PlaceIcon from "@mui/icons-material/Place";
 import DirectionsCarIcon from '@mui/icons-material/DirectionsCar';
 
 const Location = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <Box borderRadius="xl" bg="whiteAlpha.900" p="2">
       <Flex bg="whiteAlpha.900">

@@ -42,12 +42,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const RoomInfo = () => {
   const data = LoadData("roomdetail");
-  console.log(data);
+  // console.log(data);
   const navigate = useNavigate();
   const [price, setPrice] = useState(data.roomPrice);
   const [add, setAdd] = useState(false);
   const location = useLocation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  console.log(location.state.pathname);
   const handleclose = () => {
     navigate(location.state.pathname);
   };

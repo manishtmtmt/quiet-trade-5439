@@ -34,11 +34,11 @@ import { SaveData } from "../Redux/AppReducer/LocalStorage";
 const Card = ({ data }) => {
   const [price, setPrice] = useState(data.roomPrice);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   const [add, setAdd] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  console.log(data);
+  // console.log(data);
 
   const handleChange = (e) => {
     let { value } = e.target;

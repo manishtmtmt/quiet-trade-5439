@@ -9,8 +9,9 @@ import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import React from "react";
 
 const Overview = ({ name, starRating }) => {
+  // console.log(starRating)
   const star = () => {
-    if (starRating >= 3 && starRating <= 4) {
+    if (starRating >= 3 && starRating < 4) {
       return (
         <Box align="start" color="grey" mt="0" ml="2" bg="whiteAlpha.900" >
           <StarIcon style={{backgroundColor:"white"}}/>
@@ -18,9 +19,21 @@ const Overview = ({ name, starRating }) => {
           <StarIcon style={{backgroundColor:"white"}}/>
         </Box>
       );
-    } else if (starRating >= 4 && starRating <= 5) {
+    } else if (starRating >= 4 && starRating < 5) {
       return (
-        <Box align="start" m="2"  bg="whiteAlpha.900">
+        <Box align="start" m="2"  color="grey" ml="2"  bg="whiteAlpha.900">
+          <StarIcon style={{backgroundColor:"white"}}/>
+          <StarIcon style={{backgroundColor:"white"}}/>
+          <StarIcon style={{backgroundColor:"white"}}/>
+          <StarIcon style={{backgroundColor:"white"}}/>
+        </Box>
+      );
+     
+    }
+    else if(starRating >= 5){
+      return (
+        <Box align="start" m="2"  color="grey" ml="2"  bg="whiteAlpha.900">
+          <StarIcon style={{backgroundColor:"white"}}/>
           <StarIcon style={{backgroundColor:"white"}}/>
           <StarIcon style={{backgroundColor:"white"}}/>
           <StarIcon style={{backgroundColor:"white"}}/>
@@ -31,7 +44,7 @@ const Overview = ({ name, starRating }) => {
   };
 
   const TextOnRating = () => {
-    if (starRating >= 3 && starRating <= 4) {
+    if (starRating >= 3 && starRating < 4) {
       return "Average";
     } else if (starRating >= 4) {
       return `Wonderful`;
@@ -41,7 +54,7 @@ const Overview = ({ name, starRating }) => {
   };
 
   const Reviews = () => {
-    if (starRating >= 3 && starRating <= 4) {
+    if (starRating >= 3 && starRating < 4) {
       return 500;
     } else if (starRating >= 4) {
       return 1000;

@@ -5,7 +5,7 @@ import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
 
 const Availability = ({avl}) => {
-  console.log(avl)
+  // console.log(avl)
   const [border, setBorder] = useState("");
   const toast = useToast()
   const handleSet = (x) => {
