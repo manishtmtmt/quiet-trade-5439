@@ -17,11 +17,13 @@ import AboutProperty from "../Components/AboutProperty";
 import Searchbar from "../Components/Searchbar";
 import Amenities from "../Components/Amenities";
 import Policies from "../Components/Policies";
+import { LoadData } from "../Redux/AppReducer/LocalStorage";
 
 const HotelDetail = () => {
   const dispatch = useDispatch();
-  const { data, loading } = useSelector((state) => state.AppReducer);
-
+  const { loading } = useSelector((state) => state.AppReducer);
+  let data = LoadData("cardData")
+  console.log(data)
   // console.log(data);
 
   useEffect(() => {
