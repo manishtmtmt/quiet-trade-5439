@@ -28,12 +28,13 @@ import WifiIcon from "@mui/icons-material/Wifi";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { SaveData } from "../Redux/AppReducer/LocalStorage";
 
 const Card = ({ data }) => {
   const [price, setPrice] = useState(data.roomPrice);
-
+  const location =useLocation();
+  console.log(location);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   console.log(data);
@@ -114,7 +115,7 @@ const Card = ({ data }) => {
       <Text color="grey" bg="whiteAlpha.900" m="2" fontSize="sm" ml="4">
         Before Mon, Aug 1
       </Text>
-      <Link to={`/Hoteldetail/${data?.roomTypeId}`}>
+      <Link to={`/Hoteldetail/${data?.roomTypeId}`}  state={{ pathname: location.pathname }} >
         <Flex
           ml="2"
           fontSize="sm"
