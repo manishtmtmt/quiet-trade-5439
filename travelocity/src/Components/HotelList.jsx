@@ -23,7 +23,9 @@ import PopularFliter from "./Filters/PopularFliter";
 import PopularLocation from "./Filters/PopularLocation";
 import PropertyType from "./Filters/PropertyType";
 import { SearchByProperty } from "./Filters/SearchByProperty";
+import { Footer } from "./Footer/Footer";
 import HotelCard from "./HotelCard";
+import { Navbar } from "./Navbar";
 
 const HotelList = () => {
   const [hotels, setHotels] = useState([]);
@@ -112,7 +114,8 @@ const HotelList = () => {
   }, []);
   return (
     <Box background={"#f0f3f5"}>
-      <Container maxW="6xl">
+      <Navbar />
+      <Container maxW="6xl" mt={"15px"}>
         <Flex>
           <Box w={"30%"}>
             <Box>
@@ -264,6 +267,7 @@ const HotelList = () => {
           </Box>
         </Flex>
       </Container>
+      <Footer />
     </Box>
   );
 };
