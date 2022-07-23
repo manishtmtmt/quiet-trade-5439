@@ -24,7 +24,7 @@ const Searchbar = () => {
   const navigate = useNavigate()
 
   const handleClick = () => {
-    navigate("/hotel")
+    navigate("/hotels")
   }
 
   return (

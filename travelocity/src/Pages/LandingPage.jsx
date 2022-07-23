@@ -25,10 +25,13 @@ export const LandingPage = () => {
               position="absolute"
               mt="125px"
               ml="5"
+              zIndex="1"
             >
               Find your perfect trip
             </Text>
             <Image
+              filter="auto"
+              brightness={"80%"}
               roundedTop={"md"}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_FitForYou_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
             />
@@ -46,10 +49,13 @@ export const LandingPage = () => {
               bg="transparent"
               color="white"
               fontSize="lg"
+              zIndex="1"
             >
               Book with flexibility
             </Text>
             <Image
+              filter="auto"
+              brightness={"80%"}
               roundedTop={"md"}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_Transparency_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
             />
@@ -67,10 +73,13 @@ export const LandingPage = () => {
               position="absolute"
               mt="125px"
               ml="5"
+              zIndex="1"
             >
               we've got your back
             </Text>
             <Image
+              filter="auto"
+              brightness={"80%"}
               roundedTop={"md"}
               src="https://forever.travel-assets.com/flex/flexmanager/images/2020/11/12/TVLY_StoreFrontRefresh_BrandPromise_GotYourBack_sfimg_562x240_20201111.jpg?impolicy=fcrop&w=600&h=257&q=medium"
             />
@@ -84,6 +93,7 @@ export const LandingPage = () => {
         <Flex mt="7" gap="6">
           <Box w="50%" rounded="md">
             <Box
+              zIndex="1"
               position="absolute"
               ml="10"
               bg="transparent"
@@ -105,10 +115,13 @@ export const LandingPage = () => {
               size="sm"
               fontSize="12"
               color="#515aba"
+              zIndex="1"
             >
               View Details
             </Button>
             <Image
+              filter="auto"
+              brightness={"50%"}
               rounded="md"
               h="250px"
               src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_AllInclusive_imgB_1199x399_20211104.jpg"
@@ -116,6 +129,7 @@ export const LandingPage = () => {
           </Box>
           <Box w="50%" rounded="md">
             <Box
+              zIndex="1"
               position="absolute"
               ml="10"
               bg="transparent"
@@ -137,10 +151,13 @@ export const LandingPage = () => {
               size="sm"
               fontSize="12"
               color="#515aba"
+              zIndex="1"
             >
               View Details
             </Button>
             <Image
+              filter="auto"
+              brightness={"50%"}
               rounded="md"
               h="250px"
               src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_LastMinute_imgB_1199x399_20211104.jpg"
@@ -161,10 +178,13 @@ export const LandingPage = () => {
                 bg="transparent"
                 ml="15px"
                 mt="150px"
+                zIndex="1"
               >
                 Sunny beach hotel offers
               </Text>
               <Image
+                filter="auto"
+                brightness="80%"
                 rounded="lg"
                 src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Beach_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
                 alt="sunny-beach"
@@ -179,10 +199,13 @@ export const LandingPage = () => {
                 bg="transparent"
                 ml="15px"
                 mt="150px"
+                zIndex="1"
               >
                 Car rental deals
               </Text>
               <Image
+                filter="auto"
+                brightness="80%"
                 rounded="lg"
                 src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_Car_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
                 alt="sunny-beach"
@@ -197,10 +220,13 @@ export const LandingPage = () => {
                 bg="transparent"
                 ml="15px"
                 mt="150px"
+                zIndex="1"
               >
                 Member discounts
               </Text>
               <Image
+                filter="auto"
+                brightness="80%"
                 rounded="lg"
                 src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_MOD_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
                 alt="sunny-beach"
@@ -215,10 +241,13 @@ export const LandingPage = () => {
                 bg="transparent"
                 ml="15px"
                 mt="150px"
+                zIndex="1"
               >
                 Vacation rental offers
               </Text>
               <Image
+                filter="auto"
+                brightness="80%"
                 rounded="lg"
                 src="https://forever.travel-assets.com/flex/flexmanager/images/2021/11/08/TVLY_Storefront_VacationRentals_imgB_900x506_20211104.jpg?impolicy=fcrop&w=600&h=400&q=medium"
                 alt="sunny-beach"
@@ -237,6 +266,7 @@ export const LandingPage = () => {
             mt="195px"
             ml="4"
             rounded="sm"
+            zIndex="1"
           >
             <Text fontSize="14" fontWeight="bold" bg="transparent">
               Family vacation deals
@@ -246,6 +276,8 @@ export const LandingPage = () => {
             </Text>
           </Box>
           <Image
+            filter="auto"
+            brightness="80%"
             rounded="lg"
             w="100%"
             objectFit="cover"
