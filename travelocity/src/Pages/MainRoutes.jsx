@@ -8,12 +8,13 @@ import HotelDetail from './HotelDetail'
 import HotelList from '../Components/HotelList'
 import PaymentPage from './PaymentPage'
 import RoomInfo from '../Components/RoomInfo'
+import Login from './Login'
+import SignUp from './SignUp'
 
 
 const MainRoutes = () => {
   return (
     <Routes>
-
         <Route path="/" element={<Homepage/>} />
         <Route path="/search" element={<Searchbar />} />
         <Route path="/Hoteldetail" element={<HotelDetail />} />
@@ -21,7 +22,8 @@ const MainRoutes = () => {
         <Route path="/payment" element={<PaymentPage/>} />
         <Route path="/hotels" element={<HotelList />} />
         <Route path="/payment" element={<PaymentPage />} />
-
+        <Route path="/login" element={<Login/>}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
     </Routes>
   )
 }
