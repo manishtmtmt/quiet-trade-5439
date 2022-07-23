@@ -13,7 +13,7 @@ function App() {
     <div>
       <MainRoutes />
       {/* <PaymentPage/> */}
-
+      
       {/* <Footer /> */}
     </div>
   );

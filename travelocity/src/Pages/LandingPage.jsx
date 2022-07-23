@@ -10,6 +10,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import Searchbar from "../Components/Searchbar";
+import { Link } from "react-router-dom";
 export const LandingPage = () => {
   return (
     <Container maxW="100%">
@@ -97,7 +98,7 @@ export const LandingPage = () => {
               position="absolute"
               ml="10"
               bg="transparent"
-              w="250px"
+              w="270px"
               mt="65px"
               color="white"
             >
@@ -133,7 +134,7 @@ export const LandingPage = () => {
               position="absolute"
               ml="10"
               bg="transparent"
-              w="250px"
+              w="300px"
               mt="65px"
               color="white"
             >
@@ -144,17 +145,19 @@ export const LandingPage = () => {
                 Celebrate the moment with an unexpected getaway
               </Text>
             </Box>
-            <Button
-              position="absolute"
-              m="40"
-              ml="10"
-              size="sm"
-              fontSize="12"
-              color="#515aba"
-              zIndex="1"
-            >
-              View Details
-            </Button>
+            <Link to="/best-resorts">
+              <Button
+                position="absolute"
+                m="40"
+                ml="10"
+                size="sm"
+                fontSize="12"
+                color="#515aba"
+                zIndex="1"
+              >
+                View Details
+              </Button>
+            </Link>
             <Image
               filter="auto"
               brightness={"50%"}
