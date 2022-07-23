@@ -1,6 +1,7 @@
 // import { Divider } from "@material-ui/core";
 import { Divider } from "@chakra-ui/react";
 import styled from "styled-components";
+import { LoadData } from "../../Redux/AppReducer/LocalStorage";
 
 const Wrapper = styled.div`
   background: white;
@@ -44,7 +45,9 @@ const Wrapper = styled.div`
   }
 `;
 
-export const PriceDetail = ({ price }) => {
+export const PriceDetail = () => {
+  const data = LoadData("paymentData")
+  const taxes = 29;
     return (
 
         // <div>price</div>
@@ -55,17 +58,17 @@ export const PriceDetail = ({ price }) => {
             <Divider />
             <div className="room-detail">
                 <p>1 room x 1 night</p>
-                <p>${price - 29}</p>
+                <p>{data.price}</p>
             </div>
             <div className="save">You saved 10%</div>
             <div className="taxes">
                 <p>Taxes and fees</p>
-                <p>${29}</p>
+                <p>${taxes}</p>
             </div>
             {/* <Divider /> */}
             <div className="total">
                 <p>Total</p>
-                <p>${price}</p>
+                <p>${data.price + taxes}</p>
             </div>
             <p className="coupon">Use a coupon, credit, or promotion code</p>
         </Wrapper>

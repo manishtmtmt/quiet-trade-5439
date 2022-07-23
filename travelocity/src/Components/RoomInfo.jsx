@@ -37,32 +37,43 @@ import FreeBreakfastTwoToneIcon from "@mui/icons-material/FreeBreakfastTwoTone";
 import CheckTwoToneIcon from "@mui/icons-material/CheckTwoTone";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-import { LoadData } from "../Redux/AppReducer/LocalStorage";
+import { LoadData, SaveData } from "../Redux/AppReducer/LocalStorage";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const RoomInfo = () => {
   const data = LoadData("roomdetail");
-  // console.log(data);
+  const star = LoadData("cardData");
+  console.log(data);
   const navigate = useNavigate();
   const [price, setPrice] = useState(data.roomPrice);
   const [add, setAdd] = useState(false);
   const location = useLocation();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  console.log(location.state.pathname);
+  let paymentData = {
+    img: data.images[0].url,
+    price: price,
+    starRating: star.starRating,
+  };
+  console.log(paymentData)
+
+  const handleLink = () => {
+    console.log("first")
+    SaveData("paymentData", paymentData)
+  };
+
   const handleclose = () => {
     navigate(location.state.pathname);
   };
 
-  const handleChange=(e)=>{
-    let {value} = e.target
-    setPrice(data.roomPrice + Number(value))
-    if(value=="45"){
-      setAdd(true)
+  const handleChange = (e) => {
+    let { value } = e.target;
+    setPrice(data.roomPrice + Number(value));
+    if (value == "45") {
+      setAdd(true);
+    } else {
+      setAdd(false);
     }
-    else{
-      setAdd(false)
-    }
-  }
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -360,8 +371,8 @@ const RoomInfo = () => {
             </Box>
             <Text fontSize={"lg"} fontWeight="bold" p="3">
               Room Options
-            </Text> 
-            <Box border="1px solid grey" p="5" borderRadius="14px" >
+            </Text>
+            <Box border="1px solid grey" p="5" borderRadius="14px">
               <Text fontSize={"sm"} fontWeight="bold" p="4">
                 Extras
               </Text>
@@ -411,8 +422,8 @@ const RoomInfo = () => {
                   <Spacer />
                   <Spacer />
                   <Text color="green" fontSize="10px" mt="5">
-                      Fully Refundable
-                    </Text>
+                    Fully Refundable
+                  </Text>
                   <Spacer />
                   <Spacer />
 
@@ -456,7 +467,7 @@ const RoomInfo = () => {
                   />
                 </Flex>
                 <Link to="/payment">
-                  <Button pos="static" colorScheme="blue">
+                  <Button pos="static" colorScheme="blue" onClick={handleLink}>
                     Reserve
                   </Button>
                 </Link>
@@ -477,11 +488,15 @@ const RoomInfo = () => {
                       <Text fontSize="sm">Taxes</Text>
                       <Text fontSize="sm">$30</Text>
                     </Flex>
-                    {add?( <Flex justify="space-between">
-                      <Text fontSize="sm">Dinner</Text>
-                      <Text fontSize="sm">$45</Text>
-                    </Flex>):""}
-                   
+                    {add ? (
+                      <Flex justify="space-between">
+                        <Text fontSize="sm">Dinner</Text>
+                        <Text fontSize="sm">$45</Text>
+                      </Flex>
+                    ) : (
+                      ""
+                    )}
+
                     <Stack>
                       <Spacer />
                       <Spacer />
@@ -497,7 +512,9 @@ const RoomInfo = () => {
                     </Text>
                     <Flex justify="space-between" mt="5">
                       <Link to="/payment">
-                        <Button colorScheme={"blue"}>Reserve</Button>
+                        <Button colorScheme={"blue"} onClick={handleLink}>
+                          Reserve
+                        </Button>
                       </Link>
                       <Button onClick={onClose}>Close</Button>
                     </Flex>

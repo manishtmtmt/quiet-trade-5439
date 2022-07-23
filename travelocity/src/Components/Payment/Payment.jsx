@@ -4,8 +4,10 @@ import PaymentForm from './PaymentForm'
 import styled from "styled-components";
 import { PriceDetail } from './PriceDetail';
 import Pic from './Pic';
+import { LoadData } from '../../Redux/AppReducer/LocalStorage';
 
 const Payment = () => {
+  const data = LoadData("paymentData")
   return (
 
     <div>
@@ -18,7 +20,7 @@ const Payment = () => {
     </div>
 
     <div className="right" >  
-<div className="pic" ><Pic/></div> <br />
+<div className="pic" ><Pic data={data} /></div> <br />
 
 <div className="sep" ></div>
 
@@ -36,14 +38,12 @@ export default Payment
 
 
 const  Wrapper = styled.div`
-border: 1px solid red;
 display: flex;
 margin: auto;
 width: 80%;
 justify-content: space-between;
 
 .right {
-  border: 1px solid green;
 width: 100%;
 }
 

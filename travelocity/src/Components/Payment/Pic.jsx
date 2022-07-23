@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
 
-const Pic = () => {
+const Pic = ({data}) => {
   return (
     <Wrapper>
       <div>
         <img
-          src="https://images.trvl-media.com/hotels/70000000/69560000/69551900/69551801/dd25faec_l.jpg"
+          src={data.img}
           alt=""
         />
 
         <p>
           {" "}
-          <span className="span">4.5/5</span> Wonderful (17 reviews){" "}
+          <span className="span">{data.starRating}/5</span> Wonderful (17 reviews){" "}
         </p>
         <br />
         <div> Guests rated this property 4.9/5 for cleanliness </div>

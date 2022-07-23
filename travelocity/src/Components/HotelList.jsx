@@ -119,8 +119,7 @@ const HotelList = () => {
   }
   return (
     <Box background={"#f0f3f5"}>
-      <Navbar />
-      <Container maxW="6xl" mt={"15px"}>
+      <Container maxW="6xl">
         <Flex>
           <Box w={"30%"}>
             <Box>

@@ -2,8 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { CheckIcon, LockIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
 
 const FinalSubmit = () => {
+  const navigate = useNavigate()
+  const handleSubmit = () => {
+    alert("Booking Successful!")
+    navigate("/")
+  }
   return (
     // <div>FinalSubmit</div>
 
@@ -39,6 +45,7 @@ const FinalSubmit = () => {
     //   className={classes.button} 
     //   onClick={successPayment}
     backgroundColor={"green"}
+    onClick={handleSubmit}
       >Complete Booking</Button>
 
       <br />

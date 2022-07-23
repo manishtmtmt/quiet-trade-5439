@@ -4,7 +4,7 @@ import Payment from "../Components/Payment/Payment";
 const PaymentPage = () => {
   return (
     <div>
-      <div>PaymentPage</div>
+      {/* <div>PaymentPage</div> */}
 
       <Payment />
     </div>

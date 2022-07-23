@@ -43,7 +43,7 @@ const PaymentForm = () => {
 
   return (
     <Wrapper>
-      <div>PaymentForm</div>
+      {/* <div>PaymentForm</div> */}
 
       <div className="info">
         {/* <CreditCardIcon /> */}
@@ -132,12 +132,27 @@ const PaymentForm = () => {
             <option value="01-Jan"> 01-Jan </option>
             <option value="02-Feb">02-Feb</option>
             <option value="03-Mar">03-Mar</option>
+            <option value="03-Mar">04-Apr</option>
+            <option value="03-Mar">05-May</option>
+            <option value="03-Mar">06-Jun</option>
+            <option value="03-Mar">07-Jul</option>
+            <option value="03-Mar">08-Aug</option>
+            <option value="03-Mar">09-Sep</option>
+            <option value="03-Mar">10-Oct</option>
+            <option value="03-Mar">11-Nov</option>
+            <option value="03-Mar">12-Dec</option>
           </Select>
 
           <Select placeholder="Year" bg="white">
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
+            <option value="2024">2025</option>
+            <option value="2024">2026</option>
+            <option value="2024">2027</option>
+            <option value="2024">2028</option>
+            <option value="2024">2029</option>
+            <option value="2024">2030</option>
           </Select>
         </Box>
 

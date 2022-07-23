@@ -6,7 +6,6 @@ import { LandingPage } from './LandingPage'
 const Homepage = () => {
   return (
     <div>
-      <Navbar/>
       <LandingPage/>
       <Footer/>
     </div>
