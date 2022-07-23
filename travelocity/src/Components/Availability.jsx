@@ -1,12 +1,13 @@
-import { Box, Button, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Text, useToast } from "@chakra-ui/react";
 import React from "react";
 import TodayIcon from "@mui/icons-material/Today";
 import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
 
-const Availability = () => {
+const Availability = ({avl}) => {
+  console.log(avl)
   const [border, setBorder] = useState("");
-
+  const toast = useToast()
   const handleSet = (x) => {
     if (border == x) {
       return {border:"2px solid blue"}
@@ -78,7 +79,20 @@ const Availability = () => {
           </Text>
         </Box>
       </Flex>
-      <Button colorScheme="blue" pos="static" width="25%" mt="4" size="lg">
+      <Button colorScheme="blue" pos="static" width="25%" mt="4" size="lg" onClick={() =>
+              toast({
+                title: `It is Available`,
+                status: "success",
+                position: "top-right",
+                isClosable: true,
+                render: () => (
+                  <Box color='white' p={3} bg='blue.500' borderRadius="12px">
+                  <Text color='white' bg='blue.500'>Available</Text>
+                  <Text color='white' bg='blue.500'>{`${avl?.length} Rooms are avialable`}</Text>
+                  </Box>
+                )
+              })
+            }>
         Check Availability
       </Button>
 
