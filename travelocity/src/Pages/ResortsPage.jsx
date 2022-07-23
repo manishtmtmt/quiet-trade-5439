@@ -1,11 +1,28 @@
-import { Box, Container, Heading, Text, Grid } from "@chakra-ui/react";
-import React from "react";
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Grid,
+  Image,
+  Flex,
+} from "@chakra-ui/react";
+import React, { useEffect } from "react";
 import Searchbar from "../Components/Searchbar";
 import { Footer } from "../Components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getResortData } from "../Redux/AppReducer/action";
+import { InfoOutlineIcon } from "@chakra-ui/icons";
 export const ResortsPage = () => {
-  const data = new Array(10).fill("");
+  const dispatch = useDispatch();
+  const resortsData = useSelector((state) => state.AppReducer.data);
+
+  useEffect(() => {
+    dispatch(getResortData());
+  }, []);
+  console.log(resortsData);
   return (
-    <Container maxW="100%">
+    <Container maxW="100%" bg="#f0f3f5">
       <Searchbar />
       <Box w="80%" m="auto" mb="50px">
         <Box
@@ -28,21 +45,65 @@ export const ResortsPage = () => {
             and local advisories before scheduling trips.
           </Text>
         </Box>
-        <Grid
-          border="2px solid red"
-          mt="20px"
-          gridTemplateColumns="repeat(3,1fr)"
-          gap={3}
-        >
-          {data.map((ele, i) => (
+        <Grid bg="white" mt="20px" gridTemplateColumns="repeat(3,1fr)" gap={3}>
+          {resortsData.map((ele, i) => (
             <Box
+              cursor="pointer"
               key={i}
-              border="1px solid green"
-              h="250px"
+              border="1px solid lightgrey"
               boxShadow="lg"
               rounded="lg"
             >
-              1
+              <Image src={ele.image} w="100%" h="170px" roundedTop="lg" />
+              <Box p="2">
+                <Heading fontSize="lg" h="25px" overflow="hidden">
+                  {ele.title}
+                </Heading>
+                <Text fontSize="12">{ele.city}</Text>
+                <Text fontSize="14" fontWeight="bold">
+                  {ele.rating}
+                </Text>
+                <Flex justifyContent="right">
+                  <Box
+                    alignItems="right"
+                    rounded="sm"
+                    fontSize="10px"
+                    p="1"
+                    bg={
+                      ele.discount === "Member Discount available"
+                        ? "lightgrey"
+                        : "green"
+                    }
+                    w="fit-content"
+                    color={
+                      ele.discount === "Member Discount available"
+                        ? "#0a438b"
+                        : "white"
+                    }
+                    fontWeight="400"
+                  >
+                    {ele.discount}
+                  </Box>
+                </Flex>
+                <Text fontWeight="600" fontSize="12" color="green">
+                  Fully Refundable Options
+                </Text>
+                <Flex justifyContent="right">
+                  <Flex alignItems="center" gap={"0.9px"}>
+                    <InfoOutlineIcon fontSize="13" />
+                    <Text as="del" fontSize="14" alignItems="center">
+                      {ele.strikeOffPrice}
+                    </Text>
+                  </Flex>
+                  <Text fontSize="lg" fontWeight="bold" w="60px">
+                    {ele.price}
+                  </Text>
+                </Flex>
+                <Flex justifyContent="space-between" pr="4">
+                  <Text fontSize="10">{ele.date}</Text>
+                  <Text fontSize="10">per night</Text>
+                </Flex>
+              </Box>
             </Box>
           ))}
         </Grid>

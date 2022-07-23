@@ -20,7 +20,7 @@ const MainRoutes = () => {
       <Route path="/payment" element={<PaymentPage />} />
       <Route path="/hotels" element={<HotelList />} />
       <Route path="/payment" element={<PaymentPage />} />
-      <Route path="/best-resorts" element={<ResortsPage />} />
+      <Route path="/bestresorts" element={<ResortsPage />} />
     </Routes>
   );
 };
