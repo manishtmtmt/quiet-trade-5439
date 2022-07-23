@@ -8,11 +8,13 @@ import {
   Grid,
   Radio,
   RadioGroup,
+  Select,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useCallback, useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Ads from "./Ads/Ads";
 import GuestRating from "./Filters/GuestRating";
 import MealPlans from "./Filters/MealPlans";
@@ -29,6 +31,9 @@ const HotelList = () => {
   const [loading, setloading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlSort = searchParams.get("sortBy");
+  const [sortBy, setSortBy] = useState(urlSort || "");
 
   const getData = () => {
     setloading(true);
@@ -82,6 +87,25 @@ const HotelList = () => {
       setloading(false);
     }, 2000);
   };
+
+  const handleSort = (e) => {
+    setSortBy(e.target.value)
+  };
+
+  if(sortBy === "asc") {
+    hotels.sort((a, b) => a.price - b.price)
+  }
+  else {
+    hotels.sort((a, b) => b.starRating - a.starRating)
+  }
+
+  useEffect(() => {
+    if (sortBy) {
+      let params = {};
+      sortBy && (params.sortBy = sortBy);
+      setSearchParams(params);
+    }
+  }, [sortBy, setSearchParams]);
 
   useEffect(() => {
     getData();
@@ -200,8 +224,32 @@ const HotelList = () => {
             <MealPlans />
           </Box>
           <Box w={"50%"}>
+            <Box
+              w={"50%"}
+              float="right"
+              border={"1px solid black"}
+              p="5px"
+              borderRadius={"10px"}
+              m="15px"
+              fontSize={"0.8rem"}
+            >
+              Sort by
+              <Select
+                placeholder="Recommended"
+                border={"none"}
+                fontSize="0.8rem"
+                onChange={handleSort}
+              >
+                <option value="asc">Price</option>
+                <option value="desc">Star rating</option>
+              </Select>
+            </Box>
             {loading ? (
-              <Flex justifyContent={"center"} alignItems="center" height={"100vh"}>
+              <Flex
+                justifyContent={"center"}
+                alignItems="center"
+                height={"100vh"}
+              >
                 <CircularProgress isIndeterminate />
               </Flex>
             ) : (
