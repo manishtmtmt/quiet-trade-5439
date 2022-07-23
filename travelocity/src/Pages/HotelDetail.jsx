@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Container, Flex, Text, Image, Input } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import { useEffect } from "react";
@@ -14,21 +14,41 @@ import Location from "../Components/Location";
 import Spinner2 from "../Components/Spinner";
 import AboutProperty from "../Components/AboutProperty";
 
-import Searchbar from "../Components/Searchbar";
+
 import Amenities from "../Components/Amenities";
 import Policies from "../Components/Policies";
+import { LoadData } from "../Redux/AppReducer/LocalStorage";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const HotelDetail = () => {
-  const dispatch = useDispatch();
-  const { data, loading } = useSelector((state) => state.AppReducer);
+  // const dispatch = useDispatch();
+  const [loading,setLoading] = useState(true)
+  // const { loading } = useSelector((state) => state.AppReducer);
+  let data = LoadData("cardData")
+  // const location = useLocation()
+  // console.log(location.state.pathname);
+  const navigate = useNavigate()
+  
+  // let {pathname,search} = location.state
+  // console.log(pathname,search)
+const handleBack = () =>{
+  // if(search){
 
-  // console.log(data);
-
+  //   navigate(`${pathname}${search}`)
+  // }
+  // else{
+    navigate("/hotels")
+  // }
+}
   useEffect(() => {
-    if (data.length == 0) {
-      dispatch(getDataApi());
-    }
-  }, [data.length, dispatch]);
+    // if (data.length == 0) {
+    //   dispatch(getDataApi());
+    // }
+    setTimeout(() => {
+      setLoading(false)
+    }, 1000);
+
+  }, []);
 
   if (loading) {
     return <Spinner2 />;
@@ -39,28 +59,28 @@ const HotelDetail = () => {
       {/* <Searchbar /> */}
       <Flex padding="4" bg="whiteAlpha.900" color="black">
         <Box bg="whiteAlpha.900">
-          <ArrowBackIcon color="blue.300" bg="whiteAlpha.900" w={8} />
+          <ArrowBackIcon color="blue.300" bg="whiteAlpha.900" w={8} onClick={handleBack}/>
         </Box>
         <Text bg="whiteAlpha.900" color="blue.300">
           {" "}
           See all properties
         </Text>
       </Flex>
-      <ImagesSec1 imgdata={data[0]?.images} />
+      <ImagesSec1 imgdata={data?.images} />
       <Innavbr />
       <Box id="overview">
-        <Overview {...data[0]} />
+        <Overview {...data} />
       </Box>
       <Text fontSize={"4xl"} fontWeight="bold">
         Choose your room
       </Text>
-      <Availability avl={data[0]?.roomTypes} />
+      <Availability avl={data?.roomTypes} />
       <Box id="rooms">
-        <RoomCard Rmd={data[0]?.roomTypes} />
+        <RoomCard Rmd={data?.roomTypes} />
       </Box>
       <Box id="location">
-        <Location data={data[0]?.address} />
-        <AboutProperty data={data[0]?.address} />
+        <Location data={data?.address} />
+        <AboutProperty data={data?.address} />
       </Box>
       <Box id="amenities">
         <Amenities />
