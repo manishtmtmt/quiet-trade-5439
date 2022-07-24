@@ -6,8 +6,6 @@
 
 Travelocity.com is an online travel agency owned by Expedia Group. It has 12.4 million monthly unique visitors, making it the third most popular website owned by Expedia Group, after Expedia.com and Hotels.com.
 
-This is the clone of the Travelocity website. Travelocity is an online travel agency.
-
 From this website, users can book a hotel room, flights, cars, etc. across the world.
 
 ### <u>To see the live site click the below link.</u>
