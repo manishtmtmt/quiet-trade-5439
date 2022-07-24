@@ -5,3 +5,10 @@ This is the clone of the Travelocity website. Travelocity is an online travel ag
 project-id: quiet-trade-5439
 
 construct-week-project
+
+### <u>Deployed Link</u>
+
+
+Deployed with Netlify 
+```
+https://quite-trade-5439-travelocity.netlify.app/
