@@ -47,7 +47,7 @@ const Wrapper = styled.div`
 
 export const PriceDetail = () => {
   const data = LoadData("paymentData")
-  const taxes = 29;
+  const taxes = 30;
     return (
 
         // <div>price</div>

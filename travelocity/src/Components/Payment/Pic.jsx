@@ -19,7 +19,7 @@ const Pic = ({data}) => {
         <br />
         <div> 1 Room: Deluxe Room, 2 Twin Beds </div>
 
-        <p style={{ color: "red" }}> Non-refundable </p>
+        <p style={{ color: "green" }}> fully refundable </p>
         <br />
 
         <div>
