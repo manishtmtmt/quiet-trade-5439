@@ -114,7 +114,7 @@ const Searchbar = () => {
                 <PopoverTrigger>
                   <Flex height={"100%"}>
                     <Box fontSize="24px" m={"12px"}>
-                      <i class="fa-solid fa-user"></i>
+                      <i className="fa-solid fa-user"></i>
                     </Box>
                     <Box textAlign={"left"} mt="5px">
                       <Text>Travelers</Text>

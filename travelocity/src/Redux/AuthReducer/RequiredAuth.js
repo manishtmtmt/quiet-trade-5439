@@ -6,7 +6,7 @@ export const RequiredAuth = ({children})=>{
     let {isAuth} = useSelector((state)=>state.isAuth);
 
     const location = useLocation()
-    console.log(isAuth)
+    // console.log(isAuth)
     if(isAuth){
         return children;
     }

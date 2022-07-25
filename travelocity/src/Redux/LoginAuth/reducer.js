@@ -1,7 +1,7 @@
 import { LOGIN_AUTH } from "./action";
 
 const auth = JSON.parse(localStorage.getItem("auth")) 
-console.log(auth)
+// console.log(auth)
 
 const initState = {
   isAuth: auth || false,

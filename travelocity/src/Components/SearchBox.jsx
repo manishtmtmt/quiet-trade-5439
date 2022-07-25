@@ -20,7 +20,7 @@ const SearchBox = () => {
         <PopoverTrigger>
           <Flex>
             <Box fontSize="24px" m={"12px"}>
-              <i class="fa-solid fa-location-dot"></i>
+              <i className="fa-solid fa-location-dot"></i>
             </Box>
             <Box textAlign={"left"} mt="15px">
               {query}
