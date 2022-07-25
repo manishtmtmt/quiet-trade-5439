@@ -1,18 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { LoadData } from "../../Redux/AppReducer/LocalStorage";
 
 const Pic = ({data}) => {
+ let rev =  LoadData("review")
   return (
     <Wrapper>
       <div>
         <img
-          src={data.img}
+          src={data?.img}
           alt=""
         />
 
         <p>
           {" "}
-          <span className="span">{data.starRating}/5</span> Wonderful (17 reviews){" "}
+          <span className="span">{data?.starRating}/5</span> Wonderful ({rev} reviews){" "}
         </p>
         <br />
         <div> Guests rated this property 4.9/5 for cleanliness </div>

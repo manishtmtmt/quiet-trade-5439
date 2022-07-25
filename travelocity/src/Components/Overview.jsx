@@ -7,6 +7,7 @@ import SpaIcon from "@mui/icons-material/Spa";
 import LocalParkingIcon from "@mui/icons-material/LocalParking";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import React from "react";
+import { SaveData } from "../Redux/AppReducer/LocalStorage";
 
 const Overview = ({ name, starRating }) => {
   // console.log(starRating)
@@ -53,6 +54,7 @@ const Overview = ({ name, starRating }) => {
     }
   };
 
+  
   const Reviews = () => {
     if (starRating >= 3 && starRating < 4) {
       return 500;
@@ -62,6 +64,10 @@ const Overview = ({ name, starRating }) => {
       return 300;
     }
   };
+
+  let rev = Math.floor(Math.random() * Reviews() + 1)
+
+  SaveData("review",rev)
   // console.log(props)
   return (
     <Flex justify="space-evenly" bg="whiteAlpha.900" p="2" >
@@ -87,7 +93,7 @@ const Overview = ({ name, starRating }) => {
           fontSize="sm"
           m="2"
         >
-          See all {Math.floor(Math.random() * Reviews() + 1)} reviews{" "}
+          See all {rev} reviews{" "}
           <ChevronRightIcon style={{backgroundColor:"white"}} />
         </Text>
 

@@ -31,13 +31,21 @@ import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { SaveData } from "../Redux/AppReducer/LocalStorage";
 
-const Card = ({ data }) => {
+const Card = ({ data ,star}) => {
   const [price, setPrice] = useState(data.roomPrice);
   const location = useLocation();
   // console.log(location);
   const [add, setAdd] = useState(false);
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  let paymentData = {
+    img: data.images[0].url,
+    price: price,
+    starRating: star,
+  };
+  // console.log(star)
+  const handleClick =()=>{
+    SaveData("paymentData", paymentData)
+  }
   // console.log(data);
 
   const handleChange = (e) => {
@@ -231,7 +239,7 @@ const Card = ({ data }) => {
           />
         </Flex>
         <Link to="/payment">
-          <Button pos="static" colorScheme="blue">
+          <Button pos="static" colorScheme="blue" onClick={handleClick}>
             Reserve
           </Button>
         </Link>

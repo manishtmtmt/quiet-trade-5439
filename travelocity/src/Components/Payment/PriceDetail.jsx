@@ -58,7 +58,7 @@ export const PriceDetail = () => {
             <Divider />
             <div className="room-detail">
                 <p>1 room x 1 night</p>
-                <p>{data.price}</p>
+                <p>{data?.price}</p>
             </div>
             <div className="save">You saved 10%</div>
             <div className="taxes">
@@ -68,7 +68,7 @@ export const PriceDetail = () => {
             {/* <Divider /> */}
             <div className="total">
                 <p>Total</p>
-                <p>${data.price + taxes}</p>
+                <p>${data?.price + taxes}</p>
             </div>
             <p className="coupon">Use a coupon, credit, or promotion code</p>
         </Wrapper>

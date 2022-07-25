@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router-dom";
 import { loginAuth } from "../Redux/LoginAuth/action";
 import TextField from "@material-ui/core/TextField";
 import "./SignUp.css"
@@ -9,7 +9,11 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import AppleIcon from "@material-ui/icons/Apple";
 import { Text } from "@chakra-ui/react";
 
+
 function Login() {
+  
+const location = useLocation();
+const comingFrom = location.state?.from?.pathname || "/"
   const signupData = JSON.parse(localStorage.getItem("signup")) || null;
 
   const dispatch=useDispatch();
@@ -46,7 +50,10 @@ function Login() {
         alert("Login Succesfull");
         localStorage.setItem("auth", JSON.stringify(true));
         dispatch(loginAuth(true));
-        navigate("/");
+        navigate(comingFrom, {replace:true})
+      }
+      else{
+        alert("Validation Failed. wrong credential")
       }
     }
     else

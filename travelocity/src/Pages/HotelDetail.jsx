@@ -76,7 +76,7 @@ const handleBack = () =>{
       </Text>
       <Availability avl={data?.roomTypes} />
       <Box id="rooms">
-        <RoomCard Rmd={data?.roomTypes} />
+        <RoomCard Rmd={data?.roomTypes} star={data?.starRating}/>
       </Box>
       <Box id="location">
         <Location data={data?.address} />

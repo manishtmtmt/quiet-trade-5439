@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Container,
   Flex,
@@ -26,7 +27,9 @@ export const Navbar = () => {
   const signupData = JSON.parse(localStorage.getItem("signup")) || null;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
+  const Home=() => {
+    navigate("/")
+  }
   const handleLogout = () => {
     localStorage.setItem("auth", JSON.stringify(false));
     dispatch(loginAuth(false));
@@ -37,12 +40,15 @@ export const Navbar = () => {
     <Container border="1px solid #0a438b" h="75px" maxW="100%" bg="#0a438b">
       <Flex w="78%" h="80%" ml="180px" mt="2" justifyContent="space-between">
         <Flex w="230px" alignItems="center" justifyContent="space-between">
+          <Box onClick={Home}>
+
           <Image
             cursor="pointer"
             w="90px"
             src="https://www.travelocity.com/_dms/header/logo.svg?locale=en_US&siteid=80001&2"
             alt="travelocity-logo"
-          />
+            />
+            </Box>
 
           <Popover margin="auto">
             <PopoverTrigger>

@@ -7,8 +7,8 @@ import { useNavigate } from "react-router-dom";
 const FinalSubmit = () => {
   const navigate = useNavigate()
   const handleSubmit = () => {
-    alert("Booking Successful!")
-    navigate("/")
+ 
+    navigate("/OTP")
   }
   return (
     // <div>FinalSubmit</div>

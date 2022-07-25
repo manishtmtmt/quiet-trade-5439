@@ -43,7 +43,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 const RoomInfo = () => {
   const data = LoadData("roomdetail");
   const star = LoadData("cardData");
-  console.log(data);
+  // console.log(data);
   const navigate = useNavigate();
   const [price, setPrice] = useState(data.roomPrice);
   const [add, setAdd] = useState(false);
@@ -54,17 +54,26 @@ const RoomInfo = () => {
     price: price,
     starRating: star.starRating,
   };
-  console.log(paymentData)
+  // console.log(data.images.length)
+
+
+  let [num,setNum] = useState(0)
 
   const handleLink = () => {
-    console.log("first")
+
     SaveData("paymentData", paymentData)
   };
 
   const handleclose = () => {
     navigate(location.state.pathname);
   };
+const changeImage = () => {
 
+  if(num==data.images.length-1){
+    setNum(num=0)
+  }
+  setNum(num+1)
+}
   const handleChange = (e) => {
     let { value } = e.target;
     setPrice(data.roomPrice + Number(value));
@@ -362,12 +371,15 @@ const RoomInfo = () => {
             </Box>
           </Box>
           <Box width="50%">
-            <Box borderRadius="12px" m="4">
+            <Box borderRadius="12px" m="4" >
+             
               <Img
-                src={data.images[0].url}
+                src={data.images[num].url}
                 borderRadius="20px"
                 alt="room-image"
+                onClick={changeImage}
               />
+              
             </Box>
             <Text fontSize={"lg"} fontWeight="bold" p="3">
               Room Options
