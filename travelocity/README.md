@@ -10,7 +10,7 @@ From this website, users can book a hotel room, flights, cars, etc. across the w
 
 ### <u>To see the live site click the below link.</u>
 ```
-https://quite-trade-5439-travelocity.netlify.app/
+https://travelocity-eight.vercel.app/
  ```
 ### <u>To see the Demo Video of Website click the below link.</u>
 ```
