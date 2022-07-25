@@ -11,4 +11,4 @@ construct-week-project
 
 Deployed with Netlify 
 ```
-https://quite-trade-5439-travelocity.netlify.app/
+https://travelocity-eight.vercel.app/
