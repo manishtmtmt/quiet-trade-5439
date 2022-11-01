@@ -16,9 +16,8 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { loginAuth } from "../Redux/LoginAuth/action";
-import "./Navbar.css"
-
+import { loginAuth } from "../Redux/AuthReducer/action";
+import "./Navbar.css";
 
 export const Navbar = () => {
   const isAuth = useSelector((store) => store.isAuth.isAuth);
@@ -27,9 +26,9 @@ export const Navbar = () => {
   const signupData = JSON.parse(localStorage.getItem("signup")) || null;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const Home=() => {
-    navigate("/")
-  }
+  const Home = () => {
+    navigate("/");
+  };
   const handleLogout = () => {
     localStorage.setItem("auth", JSON.stringify(false));
     dispatch(loginAuth(false));
@@ -41,14 +40,13 @@ export const Navbar = () => {
       <Flex w="78%" h="80%" ml="180px" mt="2" justifyContent="space-between">
         <Flex w="230px" alignItems="center" justifyContent="space-between">
           <Box onClick={Home}>
-
-          <Image
-            cursor="pointer"
-            w="90px"
-            src="https://www.travelocity.com/_dms/header/logo.svg?locale=en_US&siteid=80001&2"
-            alt="travelocity-logo"
+            <Image
+              cursor="pointer"
+              w="90px"
+              src="https://www.travelocity.com/_dms/header/logo.svg?locale=en_US&siteid=80001&2"
+              alt="travelocity-logo"
             />
-            </Box>
+          </Box>
 
           <Popover margin="auto">
             <PopoverTrigger>
@@ -118,24 +116,27 @@ export const Navbar = () => {
           <Text fontSize="14px">Trips</Text>
           {/* <Text fontSize="14px">{username ? username : "Signin"}</Text> */}
           <div className="login_icon">
-              {isAuth ? (
-                <>
-                  <Link to="/login">
-
-                      <span style={{color:"white"}}> <Text>Hello , {signupData.name}</Text></span>
-
-                  </Link>
-                  <Link to="/" onClick={handleLogout}>
+            {isAuth ? (
+              <>
+                <Link to="/login">
+                  <span style={{ color: "white" }}>
+                    {" "}
+                    <Text>Hello , {signupData.name}</Text>
+                  </span>
+                </Link>
+                <Link to="/" onClick={handleLogout}>
                   {/* <span style={{color:"red"}} className="iconify" data-icon="tabler:logout"></span> */}
                   <Text fontSize="14px">Logout</Text>
-                  </Link>
-                </>
-              ) : (
-                <Link to="/login">
-                  <span style={{color:"white", textDecoration:"none"}}>Sign In</span>
+                </Link>
+              </>
+            ) : (
+              <Link to="/login">
+                <span style={{ color: "white", textDecoration: "none" }}>
+                  Sign In
+                </span>
               </Link>
-              )}
-            </div>
+            )}
+          </div>
         </Flex>
       </Flex>
     </Container>
