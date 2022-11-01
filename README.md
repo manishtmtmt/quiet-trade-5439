@@ -31,7 +31,8 @@ Sagar Bhuva
 Deepak Dubey
 
 
-## Tech stack
+## Tech Stack Used
+
 React js
 
 Redux
@@ -45,11 +46,11 @@ JavaScript
 
 ## Used libraries
 
-node modules
+Node Modules
 
 Styled-Components
 
-axios
+Axios
 
 React Js
 
@@ -77,7 +78,9 @@ Individual Hotel Details Pages
 
 Filter hotels list by their ratings, hotel name and price etc.
 
+## Deployment Tool
 
+Heroku
 
 # Some features of this website
 
