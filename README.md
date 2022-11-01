@@ -18,11 +18,11 @@ https://drive.google.com/file/d/1A5f3j2im6V9Rl1pIf9Do2Bm1Bd-b-_qK/view
 ```
 
 
-### Team Members
+## Team Members
 
 Manish Tiwari
 
-Sai 
+Sai Narasimha
 
 Pradeep Yadav
 
@@ -31,7 +31,7 @@ Sagar Bhuva
 Deepak Dubey
 
 
-### Tech stack
+## Tech stack
 React js
 
 Redux
@@ -43,7 +43,7 @@ CSS
 JavaScript
 
 
-### Used libraries
+## Used libraries
 
 node modules
 
@@ -65,7 +65,7 @@ React Icons
 
 Chakra-UI
 
-### Features
+## Features
 
 Signin/Signup
 
