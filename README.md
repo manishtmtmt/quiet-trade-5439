@@ -21,66 +21,34 @@ https://drive.google.com/file/d/1A5f3j2im6V9Rl1pIf9Do2Bm1Bd-b-_qK/view
 ## Team Members
 
 Manish Tiwari
-
 Sai Narasimha
-
 Pradeep Yadav
-
 Sagar Bhuva
-
 Deepak Dubey
 
 
 ## Tech Stack Used
 
 React js
-
 Redux
-
 HTML
-
 CSS
-
 JavaScript
-
-
-## Used libraries
-
-Node Modules
-
-Styled-Components
-
-Axios
-
-React Js
-
-Redux
-
-React-router-dom
-
-Material-UI
-
-Material-Icons
-
-React Icons
-
 Chakra-UI
+
 
 ## Features
 
 Signin/Signup
-
 Hotel search across world's cities
-
 Hotel Booking
-
 Individual Hotel Details Pages
-
 Filter hotels list by their ratings, hotel name and price etc.
 
 ## Deployment Tool
 
 Heroku
+Vercel
 
 # Some features of this website
 
