@@ -294,7 +294,6 @@ export const LandingPage = () => {
         </Box>
         <Box mt="30px" rounded="lg">
           <iframe
-            // borderRadius="20px"
             width="100%"
             height="400"
             src="https://www.youtube.com/embed/ItS8X0SjT4s"

@@ -3,7 +3,7 @@ import { SaveData } from "../Redux/AppReducer/LocalStorage";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const Wrapper = styled.div`
-  width: 95%;
+  width: 100%;
   height: 170px;
   margin: 10px;
   margin-bottom: 20px;
@@ -76,43 +76,40 @@ const Wrapper = styled.div`
   }
 `;
 
-const Hotelcard = ({ data ,state}) => {
-
-  const location = useLocation()
-// console.log(location)
+const Hotelcard = ({ data, state }) => {
+  // const location = useLocation();
+  
   const navigate = useNavigate();
   const handleClick = () => {
-    SaveData("cardData", data)
-    navigate(`/Hoteldetail`)
-  
-  }
-    return (
-        <Wrapper onClick={handleClick}
-        >
-            <img className="card-image" src={data.images[1].url} alt="" />
-            <div className="hotel-detail">
-                <div className="hotel-name-add">
-                    <h3 className="hotel-name">{data.name}</h3>
-                    <div className="hotel-city">{data.address.city}</div>
-                </div>
-                <div className="desc-rating">
-                    <div className="description">Fully refundable</div>
-                    <div className="description">Reserve Now Pay Later</div>
-                    <div className="rating">
-                        <span className="star">{data.starRating}/5.0</span> Excellent (356
-                        reviews)
-                    </div>
-                </div>
-            </div>
-            <div className="price-detail">
-                <div className="off">We have 5 left at 25% off</div>
-                <div className="price">${data.price}</div>
-                <div>Per night</div>
-                <div className="total-price">${data.price + 20} Total</div>
-                <div>Includes taxes and fees</div>
-            </div>
-        </Wrapper>
-    );
+    SaveData("cardData", data);
+    navigate(`/Hoteldetail`);
+  };
+  return (
+    <Wrapper onClick={handleClick}>
+      <img className="card-image" src={data.images[1].url} alt="" />
+      <div className="hotel-detail">
+        <div className="hotel-name-add">
+          <h3 className="hotel-name">{data.name}</h3>
+          <div className="hotel-city">{data.address.city}</div>
+        </div>
+        <div className="desc-rating">
+          <div className="description">Fully refundable</div>
+          <div className="description">Reserve Now Pay Later</div>
+          <div className="rating">
+            <span className="star">{data.starRating}/5.0</span> Excellent (356
+            reviews)
+          </div>
+        </div>
+      </div>
+      <div className="price-detail">
+        <div className="off">We have 5 left at 25% off</div>
+        <div className="price">${data.price}</div>
+        <div>Per night</div>
+        <div className="total-price">${data.price + 20} Total</div>
+        <div>Includes taxes and fees</div>
+      </div>
+    </Wrapper>
+  );
 };
 
 export default Hotelcard;
