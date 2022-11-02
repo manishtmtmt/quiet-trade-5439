@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { loginAuth } from "../Redux/AuthReducer/action";
 import TextField from "@material-ui/core/TextField";
 import "./SignUp.css";
-import { Box, Checkbox } from "@chakra-ui/react"; //CheckboxGroup deleted from here
+import { Box, Checkbox, Input } from "@chakra-ui/react"; //CheckboxGroup deleted from here
 import { Text } from "@chakra-ui/react";
 
 // import FacebookIcon from "@material-ui/icons/Facebook";
@@ -76,26 +76,32 @@ const Login = () => {
         <Text fontSize="25">Sign in</Text>
 
         <form onSubmit={handleSubmit}>
-          <TextField
+          <Input
+            border="1px solid lightgrey"
+            height="8vh"
             onChange={handleChange}
             variant="outlined"
             required
             fullWidth
             id="email"
             type="email"
-            label="yourname@example.com"
+            placeholder="yourname@example.com"
             autoFocus
+            mb="20px"
+            mt="10px"
           />
           <br />
-          <br />
-          <TextField
+
+          <Input
+            border="1px solid lightgrey"
+            height="8vh"
             onChange={handleChange}
             variant="outlined"
             required
             fullWidth
             id="pass"
             type="password"
-            label="Password"
+            placeholder="Password"
             autoFocus
           />
           <br />
