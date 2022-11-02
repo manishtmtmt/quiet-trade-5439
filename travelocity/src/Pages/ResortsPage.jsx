@@ -14,14 +14,20 @@ import { Footer } from "../Components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getResortData } from "../Redux/AppReducer/action";
 import { InfoOutlineIcon } from "@chakra-ui/icons";
+import Spinner2 from "../Components/Spinner";
 export const ResortsPage = () => {
-  const dispatch = useDispatch();
-  const resortsData = useSelector((state) => state.AppReducer.data);
 
+  const dispatch = useDispatch();
+
+  const resortsData = useSelector((state) => state.AppReducer.data); // getting data from the store
+
+  const loading = useSelector((state) => state.AppReducer.loading); // getiing loading state from the store
+
+  //gettting the data from the store when page refreshes 
   useEffect(() => {
     dispatch(getResortData());
   }, []);
-  console.log(resortsData);
+
   return (
     <Container maxW="100%" bg="#f0f3f5">
       <Searchbar />
@@ -46,68 +52,79 @@ export const ResortsPage = () => {
             and local advisories before scheduling trips.
           </Text>
         </Box>
-        <Grid bg="white" mt="20px" gridTemplateColumns="repeat(3,1fr)" gap={3}>
-          {resortsData.map((ele, i) => (
-            <Box
-              cursor="pointer"
-              key={i}
-              border="1px solid lightgrey"
-              boxShadow="lg"
-              rounded="lg"
-            >
-              <Image src={ele.image} w="100%" h="170px" roundedTop="lg" />
-              <Box p="2">
-                <Heading fontSize="lg" h="25px" overflow="hidden">
-                  {ele.title}
-                </Heading>
-                <Text fontSize="12">{ele.city}</Text>
-                <Text fontSize="14" fontWeight="bold">
-                  {ele.rating}
-                </Text>
-                <Flex justifyContent="right">
-                  <Box
-                    alignItems="right"
-                    rounded="sm"
-                    fontSize="10px"
-                    p="1"
-                    bg={
-                      ele.discount === "Member Discount available"
-                        ? "lightgrey"
-                        : "green"
-                    }
-                    w="fit-content"
-                    color={
-                      ele.discount === "Member Discount available"
-                        ? "#0a438b"
-                        : "white"
-                    }
-                    fontWeight="400"
-                  >
-                    {ele.discount}
-                  </Box>
-                </Flex>
-                <Text fontWeight="600" fontSize="12" color="green">
-                  Fully Refundable Options
-                </Text>
-                <Flex justifyContent="right">
-                  <Flex alignItems="center" gap={"0.9px"}>
-                    <InfoOutlineIcon fontSize="13" />
-                    <Text as="del" fontSize="14" alignItems="center">
-                      {ele.strikeOffPrice}
+        {/* Added loading indicator (spinner) */}
+        {loading ? (
+          <Spinner2 />
+        ) : (
+          <Grid
+            bg="white"
+            mt="20px"
+            gridTemplateColumns="repeat(3,1fr)"
+            gap={3}
+          >
+            {resortsData.map((ele, i) => (
+              <Box
+                cursor="pointer"
+                key={i}
+                border="1px solid lightgrey"
+                boxShadow="lg"
+                rounded="lg"
+              >
+                <Image src={ele.image} w="100%" h="170px" roundedTop="lg" />
+                <Box p="2">
+                  <Heading fontSize="lg" h="25px" overflow="hidden">
+                    {ele.title}
+                  </Heading>
+                  <Text fontSize="12">{ele.city}</Text>
+                  <Text fontSize="14" fontWeight="bold">
+                    {ele.rating}
+                  </Text>
+                  <Flex justifyContent="right">
+                    <Box
+                      alignItems="right"
+                      rounded="sm"
+                      fontSize="10px"
+                      p="1"
+                      bg={
+                        ele.discount === "Member Discount available"
+                          ? "lightgrey"
+                          : "green"
+                      }
+                      w="fit-content"
+                      color={
+                        ele.discount === "Member Discount available"
+                          ? "#0a438b"
+                          : "white"
+                      }
+                      fontWeight="400"
+                    >
+                      {ele.discount}
+                    </Box>
+                  </Flex>
+                  <Text fontWeight="600" fontSize="12" color="green">
+                    Fully Refundable Options
+                  </Text>
+                  <Flex justifyContent="right">
+                    <Flex alignItems="center" gap={"0.9px"}>
+                      <InfoOutlineIcon fontSize="13" />
+                      <Text as="del" fontSize="14" alignItems="center">
+                        {ele.strikeOffPrice}
+                      </Text>
+                    </Flex>
+                    <Text fontSize="lg" fontWeight="bold" w="60px">
+                      {ele.price}
                     </Text>
                   </Flex>
-                  <Text fontSize="lg" fontWeight="bold" w="60px">
-                    {ele.price}
-                  </Text>
-                </Flex>
-                <Flex justifyContent="space-between" pr="4">
-                  <Text fontSize="10">{ele.date}</Text>
-                  <Text fontSize="10">per night</Text>
-                </Flex>
+                  <Flex justifyContent="space-between" pr="4">
+                    <Text fontSize="10">{ele.date}</Text>
+                    <Text fontSize="10">per night</Text>
+                  </Flex>
+                </Box>
               </Box>
-            </Box>
-          ))}
-        </Grid>
+            ))}
+          </Grid>
+        )}
+
         <Box mt="30px">
           <Heading fontSize="2xl">Find all-inclusive resort deals</Heading>
           <Heading fontSize="sm" pt="1">

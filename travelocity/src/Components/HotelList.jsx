@@ -118,24 +118,24 @@ const HotelList = () => {
     return <Spinner2/>
   }
   return (
-    <Box background={"#f0f3f5"}>
-      <Container maxW="6xl">
-        <Flex>
-          <Box w={"30%"}>
-            <Box>
+    <Box background={"#f0f3f5"} >
+      <Container maxW="80%">
+        <Flex >
+          <Box w={"25%"} mr="10">
+            <Box >
               <SearchByProperty
                 handleQueryChange={handleQueryChange}
                 query={searchQuery}
               />
             </Box>
-            <Box>
+            <Box >
               <Box fontSize={"1.3rem"} fontWeight="700" mb={"0.5rem"}>
                 Filter by
               </Box>
               <Box fontSize={"1rem"} fontWeight="700" m={"1.5rem 0"}>
                 Star Rating
               </Box>
-              <Grid templateColumns={"repeat(3, 1fr)"} gap="10px" w={"80%"}>
+              <Grid templateColumns={"repeat(3, 1fr)"} gap="10px" w={"80%"} >
                 <Button
                   background={"white"}
                   onClick={() => {
@@ -230,7 +230,7 @@ const HotelList = () => {
             <PopularLocation />
             <MealPlans />
           </Box>
-          <Box w={"50%"}>
+          <Box w={"60%"} >
             <Box
               w={"50%"}
               float="right"
