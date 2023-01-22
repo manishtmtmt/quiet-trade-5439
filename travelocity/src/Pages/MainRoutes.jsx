@@ -12,13 +12,13 @@ import HotelList from "../Components/HotelList";
 import PaymentPage from "./PaymentPage";
 import { ResortsPage } from "./ResortsPage";
 import { Navbar } from "../Components/Navbar";
-import { RequiredAuth } from "../Redux/AuthReducer/RequiredAuth";
+import { RequiredAuth } from "../Components/RequiredAuth";
 import OTP from "../Components/Payment/OTP";
 
 const MainRoutes = () => {
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/search" element={<Searchbar />} />

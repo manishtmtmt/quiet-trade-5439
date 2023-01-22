@@ -14,7 +14,6 @@ import Location from "../Components/Location";
 import Spinner2 from "../Components/Spinner";
 import AboutProperty from "../Components/AboutProperty";
 
-
 import Amenities from "../Components/Amenities";
 import Policies from "../Components/Policies";
 import { LoadData } from "../Redux/AppReducer/LocalStorage";
@@ -22,32 +21,31 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 const HotelDetail = () => {
   // const dispatch = useDispatch();
-  const [loading,setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   // const { loading } = useSelector((state) => state.AppReducer);
-  let data = LoadData("cardData")
+  let data = LoadData("cardData");
   // const location = useLocation()
   // console.log(location.state.pathname);
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   // let {pathname,search} = location.state
   // console.log(pathname,search)
-const handleBack = () =>{
-  // if(search){
+  const handleBack = () => {
+    // if(search){
 
-  //   navigate(`${pathname}${search}`)
-  // }
-  // else{
-    navigate("/hotels")
-  // }
-}
+    //   navigate(`${pathname}${search}`)
+    // }
+    // else{
+    navigate("/hotels");
+    // }
+  };
   useEffect(() => {
     // if (data.length == 0) {
     //   dispatch(getDataApi());
     // }
     setTimeout(() => {
-      setLoading(false)
+      setLoading(false);
     }, 1000);
-
   }, []);
 
   if (loading) {
@@ -59,7 +57,12 @@ const handleBack = () =>{
       {/* <Searchbar /> */}
       <Flex padding="4" bg="whiteAlpha.900" color="black">
         <Box bg="whiteAlpha.900">
-          <ArrowBackIcon color="blue.300" bg="whiteAlpha.900" w={8} onClick={handleBack}/>
+          <ArrowBackIcon
+            color="blue.300"
+            bg="whiteAlpha.900"
+            w={8}
+            onClick={handleBack}
+          />
         </Box>
         <Text bg="whiteAlpha.900" color="blue.300">
           {" "}
@@ -76,7 +79,7 @@ const handleBack = () =>{
       </Text>
       <Availability avl={data?.roomTypes} />
       <Box id="rooms">
-        <RoomCard Rmd={data?.roomTypes} star={data?.starRating}/>
+        <RoomCard Rmd={data?.roomTypes} star={data?.starRating} />
       </Box>
       <Box id="location">
         <Location data={data?.address} />
