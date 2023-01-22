@@ -4,7 +4,7 @@ import axios from "axios";
 const getDataApi = () => (dispatch) => {
   dispatch({ type: types.GETDATA_REQUEST });
   axios
-    .get("https://quiet-trade.herokuapp.com/data")
+    .get("https://busy-lime-cow-belt.cyclic.app/data")
     .then((r) => dispatch({ type: types.GETDATA_SUCCESS, payload: r.data }))
     .catch((err) => dispatch({ type: types.GETDATA_FAILURE, payload: err }));
 };
