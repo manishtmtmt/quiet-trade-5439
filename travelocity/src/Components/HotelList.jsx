@@ -41,7 +41,7 @@ const HotelList = () => {
   const getData = () => {
     setloading(true);
     axios
-      .get("https://quiet-trade.herokuapp.com/data")
+      .get("https://busy-lime-cow-belt.cyclic.app/data")
       .then((res) => {
         const { data } = res;
         setData(data);
